@@ -6,7 +6,7 @@ export default class ProjectNav extends Component {
     render() {
         return (
             <nav>
-                <h1>Trade-mate</h1>
+                <NavLink to="/">Trade<span>mate</span></NavLink>
                 <ul>
                     <li><a href="https://www.bitmex.com/">Bitmex</a></li>
                     <li><NavLink to='/about' activeClassName='active-function'>About</NavLink></li>

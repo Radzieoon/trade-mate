@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {HashRouter,Switch,Route} from "react-router-dom";
 // import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Template from './Template/Template';
 import Home from './Home/Home';
 import LivePrices from './LivePrices/LivePrices';
@@ -18,7 +18,7 @@ class App extends Component {
                 <Template>
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route path="/live_prices" component={LivePrices} />
+                        <Route path="/live_prices" render={props => <LivePrices {...props} fetchInterval={3000}/>} />
                         <Route path="/trigger_settings" component={TriggerSettings} />
                         <Route path="/order_set" component={OrderSet} />
                         <Route path="/about" component={About} />

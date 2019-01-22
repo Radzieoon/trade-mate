@@ -1,0 +1,9 @@
+export const url = 'http://localhost:4444/';
+export const xbtusd = '?symbol=XBTUSD';
+export const ethusd = '?symbol=ETHUSD';
+export const bchh19 = '?symbol=BCHH19';
+export const xrph19 = '?symbol=XRPH19';
+export const adah19 = '?symbol=ADAH19';
+export const ltch19 = '?symbol=LTCH19';
+export const trxh19 = '?symbol=TRXH19';
+export const eosh19 = '?symbol=EOSH19';
