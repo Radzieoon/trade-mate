@@ -42,7 +42,7 @@ export default class Instrument extends Component {
                             <td>
                                 <button onClick={this.openChart}>Open</button>
                             </td>
-                            {/*<td>{el.timestamp}</td>*/}
+                            <td>{el.timestamp}</td>
                         </tr>
                         {orderBookOpened && <div className='orderBook'></div>}
                         {chartOpened && <div className='chart'></div>}
