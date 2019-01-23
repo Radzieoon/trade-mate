@@ -1,6 +1,7 @@
 import React, {Component,Fragment} from 'react';
 import {url,xbtusd,ethusd,bchh19,xrph19,adah19,ltch19,trxh19,eosh19} from "../../../const";
-import Basic from "./Basic/Basic";
+import Instrument from './Instrument/Instrument';
+// import Basic from "./Instrument/Basic/Basic";
 
 export default class LivePrices extends Component {
     constructor(props) {
@@ -20,15 +21,17 @@ export default class LivePrices extends Component {
         }).then(bresp => {
             if(data.length === 0) {
                 // console.log(bresp[0]);
-                const newData = data;
-                newData.push(bresp[0]);
-                console.log(newData);
+                // const newData = data;
+                // newData.push(bresp[0]);
+                // console.log(newData);
                 this.setState({
-                    data: newData
+                    data: [bresp[0]]
                 })
             } else {
                 const indexOfDataToReplace = data.map(el => el.symbol).indexOf(bresp[0].symbol);
-                const newData = data.splice(indexOfDataToReplace, 1, bresp[0]);
+                // data.splice(indexOfDataToReplace, 1, bresp[0]);
+                const newData = [...data];
+                newData[indexOfDataToReplace] = bresp[0];
                 this.setState({
                     data: newData
                 });
@@ -52,9 +55,22 @@ export default class LivePrices extends Component {
         return (
             <Fragment>
                 <h1>Check the live prices of the chosen instrument</h1>
-                <div>
-                    Last BTC Bitmex Price: <Basic type={data[0].lastPrice}/>$
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Last Price</td>
+                            <td>Ask Price</td>
+                            <td>Bid Price</td>
+                            <td>Volume 24h</td>
+                            <td>Order Book</td>
+                            <td>General Chart</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <Instrument instruments={data}/>
+                    </tbody>
+                </table>
             </Fragment>
         );
     }
