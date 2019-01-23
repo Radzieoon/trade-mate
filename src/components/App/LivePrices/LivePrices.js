@@ -8,8 +8,11 @@ export default class LivePrices extends Component {
         super(props);
         this.state = {
             filter: '',
-            fetchInterval: 20000,
-            chartSymbol: ''
+            fetchInterval: 2000,
+            modalSymbol: ''/*{
+                chart: '',
+                orderBook: ''
+            }*/
         }
     }
     filteredInstruments = () => {
@@ -17,7 +20,7 @@ export default class LivePrices extends Component {
         if(filter === '') {
             return (
                 ALL_INSTRUMENTS.map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openChart={this.openChart}/>
+                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openChart={this.getSymbolForModal} openOrderBook={this.openOrderBook}/>
                 })
             )
         } else {
@@ -25,7 +28,7 @@ export default class LivePrices extends Component {
                 ALL_INSTRUMENTS.filter(symbol => {
                     return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
                 }).map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openChart={this.openChart}/>
+                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openChart={this.getSymbolForModal} openOrderBook={this.openOrderBook}/>
                 })
             )
         }
@@ -35,13 +38,22 @@ export default class LivePrices extends Component {
             filter: event.target.value
         })
     };
-    openChart = (symbol) => {
+    //MODAL SYMBOL SPREADEM
+    getSymbolForModal = (symbol) => {
         this.setState({
-            chartSymbol: symbol
+            modalSymbol: symbol
         })
     };
+    closeModal = () => {
+        this.setState({
+            modalSymbol: ''
+        })
+    };
+    openOrderBook = (symbol) => {
+        this.getSymbolForModal(symbol)
+    };
     render() {
-        const {filter} = this.state;
+        const {filter,modalSymbol} = this.state;
         return (
             <Fragment>
                 <h1>Check the live prices of the chosen instrument</h1>
@@ -62,7 +74,12 @@ export default class LivePrices extends Component {
                         {this.filteredInstruments()}
                     </tbody>
                 </table>
-                {this.state.chartSymbol.length > 0 && <TradingViewWidget /*autosize={true}*/ allow_symbol_change={false} hide_side_toolbar={false} symbol={this.state.chartSymbol} interval='1' theme={Themes.DARK} locale='pl' studies={['MASimple@tv-basicstudies','StochasticRSI@tv-basicstudies']} container_id='tradingview_a3d39' />}
+                {modalSymbol.length > 0 && (
+                    <div>
+                        <button onClick={this.closeModal}>X</button>
+                        <TradingViewWidget /*autosize={true}*/ allow_symbol_change={false} hide_side_toolbar={false} symbol={modalSymbol} interval='1' theme={Themes.DARK} locale='pl' studies={['MASimple@tv-basicstudies', 'StochasticRSI@tv-basicstudies']} container_id='tradingview_a3d39'/>
+                    </div>
+                )}
             </Fragment>
         );
     }

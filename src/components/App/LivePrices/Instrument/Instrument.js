@@ -33,6 +33,7 @@ export default class Instrument extends Component {
 
     render() {
         const {data} = this.state;
+        const {symbol} = this.props;
         if(!data) {
             return <tr><td>Loading...</td></tr>
         }
@@ -45,10 +46,10 @@ export default class Instrument extends Component {
                     <td>{data.bidPrice}</td>
                     <td>{data.volume24h}</td>
                     <td>
-                        <button onClick={this.openOrderBook}>Open</button>
+                        <button onClick={() => this.props.openOrderBook(symbol)}>Open</button>
                     </td>
                     <td>
-                        <button onClick={() => this.props.openChart(this.props.symbol)}>Open</button>
+                        <button onClick={() => this.props.openChart(symbol)}>Open</button>
                     </td>
                     <td>{data.timestamp}</td>
                 </tr>
