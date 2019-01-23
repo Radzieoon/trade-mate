@@ -7,4 +7,4 @@ export const URL = 'http://localhost:4444/';
 // export const ltch19 = '?symbol=LTCH19';
 // export const trxh19 = '?symbol=TRXH19';
 // export const eosh19 = '?symbol=EOSH19';
-export const ALL_INSTRUMENTS = ['?symbol=XBTUSD','?symbol=ETHUSD','?symbol=BCHH19','?symbol=XRPH19','?symbol=ADAH19','?symbol=LTCH19','?symbol=TRXH19','?symbol=EOSH19'];
+export const ALL_INSTRUMENTS = ['XBTUSD','ETHUSD','BCHH19','XRPH19','ADAH19','LTCH19','TRXH19','EOSH19'];
