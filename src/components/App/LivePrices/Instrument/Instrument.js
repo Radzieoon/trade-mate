@@ -5,8 +5,6 @@ export default class Instrument extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            orderBookOpened: false,
-            chartOpened: false,
             data: null
         }
     }
@@ -32,19 +30,9 @@ export default class Instrument extends Component {
             console.log('data-state: ',data);
         });
     };
-    openOrderBook = () => {
-        this.setState({
-            orderBookOpened: true
-        })
-    };
-    openChart = () => {
-        this.setState({
-            chartOpened: true
-        })
-    };
 
     render() {
-        const {orderBookOpened,chartOpened,data} = this.state;
+        const {data} = this.state;
         if(!data) {
             return <tr><td>Loading...</td></tr>
         }
@@ -60,12 +48,10 @@ export default class Instrument extends Component {
                         <button onClick={this.openOrderBook}>Open</button>
                     </td>
                     <td>
-                        <button onClick={this.openChart}>Open</button>
+                        <button onClick={() => this.props.openChart(this.props.symbol)}>Open</button>
                     </td>
                     <td>{data.timestamp}</td>
                 </tr>
-                {orderBookOpened && <div className='orderBook'></div>}
-                {chartOpened && <div className='chart'></div>}
             </Fragment>
         );
     }

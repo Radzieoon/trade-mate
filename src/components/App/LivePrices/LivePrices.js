@@ -1,13 +1,15 @@
 import React, {Component,Fragment} from 'react';
 import {ALL_INSTRUMENTS} from "../../../const";
 import Instrument from './Instrument/Instrument';
+import TradingViewWidget, {Themes} from 'react-tradingview-widget';
 
 export default class LivePrices extends Component {
     constructor(props) {
         super(props);
         this.state = {
             filter: '',
-            fetchInterval: 2000
+            fetchInterval: 20000,
+            chartSymbol: ''
         }
     }
     filteredInstruments = () => {
@@ -15,7 +17,7 @@ export default class LivePrices extends Component {
         if(filter === '') {
             return (
                 ALL_INSTRUMENTS.map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval}/>
+                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openChart={this.openChart}/>
                 })
             )
         } else {
@@ -23,7 +25,7 @@ export default class LivePrices extends Component {
                 ALL_INSTRUMENTS.filter(symbol => {
                     return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
                 }).map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval}/>
+                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openChart={this.openChart}/>
                 })
             )
         }
@@ -31,6 +33,11 @@ export default class LivePrices extends Component {
     handleChange = (event) => {
         this.setState({
             filter: event.target.value
+        })
+    };
+    openChart = (symbol) => {
+        this.setState({
+            chartSymbol: symbol
         })
     };
     render() {
@@ -55,6 +62,7 @@ export default class LivePrices extends Component {
                         {this.filteredInstruments()}
                     </tbody>
                 </table>
+                {this.state.chartSymbol.length > 0 && <TradingViewWidget /*autosize={true}*/ allow_symbol_change={false} hide_side_toolbar={false} symbol={this.state.chartSymbol} interval='1' theme={Themes.DARK} locale='pl' studies={['MASimple@tv-basicstudies','StochasticRSI@tv-basicstudies']} container_id='tradingview_a3d39' />}
             </Fragment>
         );
     }
