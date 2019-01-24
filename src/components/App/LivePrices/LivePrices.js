@@ -1,4 +1,4 @@
-import React, {Component,Fragment} from 'react';
+import React, {Component} from 'react';
 import {ALL_INSTRUMENTS} from "../../../const";
 import Instrument from './Instrument/Instrument';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
@@ -66,9 +66,9 @@ export default class LivePrices extends Component {
     render() {
         const {filter,chartSymbol,orderBookSymbol} = this.state;
         return (
-            <Fragment>
+            <section className='section-live-prices'>
                 <h1>Check the live prices of the chosen instrument</h1>
-                <input type="text" value={filter} onChange={this.handleChange}/>
+                <input type="text" value={filter} onChange={this.handleChange} placeholder='Filter by Name'/>
                 <table>
                     <thead>
                         <tr>
@@ -79,6 +79,7 @@ export default class LivePrices extends Component {
                             <td>Volume 24h</td>
                             <td>Order Book</td>
                             <td>General Chart</td>
+                            <td>Data Timestamp</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,7 +89,7 @@ export default class LivePrices extends Component {
                 {chartSymbol.length > 0 && (
                     <div>
                         <button onClick={() => this.closeModal('chart')}>X</button>
-                        <TradingViewWidget /*autosize={true}*/ allow_symbol_change={false} hide_side_toolbar={false} symbol={chartSymbol} interval='1' theme={Themes.DARK} locale='pl' studies={['MASimple@tv-basicstudies', 'StochasticRSI@tv-basicstudies']} container_id='tradingview_a3d39'/>
+                        <TradingViewWidget autosize={true} allow_symbol_change={false} hide_side_toolbar={false} symbol={chartSymbol} interval='60' theme={Themes.DARK} locale='pl' studies={['MASimple@tv-basicstudies', 'StochasticRSI@tv-basicstudies']} container_id='tradingview_a3d39'/>
                     </div>
                 )}
                 {orderBookSymbol.length > 0 && (
@@ -97,7 +98,7 @@ export default class LivePrices extends Component {
                         HELLO, I'M AN ORDER BOOK
                     </div>
                 )}
-            </Fragment>
+            </section>
         );
     }
 }

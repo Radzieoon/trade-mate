@@ -1,20 +1,23 @@
 header nav {
-  background-color: #444;
+  align-items: center;
+  border-radius: 5px;
   display: flex;
   font-size: 1vw;
   height: 10vh;
   justify-content: space-between;
   flex-flow: row nowrap;
   width: 100%;
+  @include box-shadow(0,10px,5px,$section-shadow-color);
   &>a {
-    align-items: center;
-    color: white;
-    display: flex;
-    font-size: 3em;
-    justify-content: center;
+    color: $nav-text-color;
+    font-size: 4em;
+    font-family: 'ethnocentric', 'economica', 'Helvetica', 'Arial', sans-serif;
+    font-style: italic;
+    text-align: center;
     text-decoration: none;
+    text-shadow: 0 5px 5px LightGray;
     span {
-      color: darkred;
+      color: $app-main-text-action-color;
     }
   }
   &>ul {
@@ -26,9 +29,23 @@ header nav {
     li {
       display: inline-block;
       a {
-        font-size: 2em;
+        border-radius: 5px;
+        color: $nav-text-color;
+        display: inline-block;
+        font-size: 3em;
+        font-weight: bold;
+        padding: 0.3em 0.8em;
         text-decoration: none;
-        color: white;
+        transition: 0.5s ease-in-out;
+        &:hover {
+          background-color: $app-main-text-action-color;
+          color: $nav-text-color;
+          transform: skewX(-5deg);
+          @include box-shadow(0,6px,2px,$app-main-text-action-color);
+        }
+        &.nav-active-function {
+          color: $NavLink-active-main-color;
+        }
       }
     }
   }

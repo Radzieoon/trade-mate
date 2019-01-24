@@ -1,9 +1,53 @@
-.template {
-  color: red;
+header {
+  background-color: $panel-background-color;
+  border-radius: 5px;
+  height: 10vh;
+  margin: 0 2vw 2vh 2vw;
 }
-.active-function {
-  text-decoration: none;
-  color: darkred;
+main {
+  //height: 80vh;
+  margin: 4vh 2vw 0 2vw;
+  &>div {
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+  }
+  section:nth-child(2) {
+    background-color: $main-section-color;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: 1vw;
+    height: fit-content;
+    min-height: 50%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 2em;
+    @include box-shadow(0,3px,1px,$main-section-color);
+    h1 {
+      font-size: 4em;
+    }
+    ul {
+      padding-left: 4em;
+      margin: 2em 0;
+      li {
+        font-size: 3em;
+      }
+    }
+  }
+}
+footer {
+  align-items: center;
+  //background-color: $panel-background-color;
+  bottom: 0;
+  display: flex;
+  font-weight: bold;
+  height: 3vh;
+  justify-content: center;
+  margin-top: 2vh;
+  position: fixed;
+  width: 100%;
+  @include box-shadow(0,10px,5px,$section-shadow-color);
 }
 header li a,
 main li a {

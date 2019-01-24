@@ -1,0 +1,12 @@
+$nav-text-color: white;
+//$app-main-background-color: #e0d9ff/*#a799ff*//*#C3B400*/;
+$app-main-text-action-color: #ab1d0d;
+%app-background-gradient {
+  background: rgb(210,209,255);
+  background: linear-gradient(170deg, rgba(210,209,255,0.8029586834733894) 0%, rgba(255,255,255,0.7973564425770308) 70%, rgba(171,29,13,0.3519782913165266) 100%), url("../../images/trade-mate.jpg") center / cover;
+}
+$panel-background-color: rgba(170,170,170,0.5)/*#aaa*//*#555*/;
+$NavLink-active-main-color: black;
+$button-main-color: rgba(255,255,255,0.8);
+$section-shadow-color: rgba(0,0,0,0.5);
+$main-section-color: rgba(255,255,255,.5);
