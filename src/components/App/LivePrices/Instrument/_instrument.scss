@@ -1,0 +1,14 @@
+section.section-live-prices {
+  button {
+    background-color: $app-main-text-action-color;
+    border: none;
+    border-radius: 5px;
+    height: 2em;
+    outline: 0;
+    width: 3em;
+    svg {
+      color: $nav-text-color;
+      font-size: 1.5em;
+    }
+  }
+}

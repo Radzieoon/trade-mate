@@ -1,1 +1,50 @@
-
+main {
+  section.section-left-panel {
+    border-radius: 5px;
+    background-color: $panel-background-color;
+    height: fit-content;
+    margin-bottom: 2vh;
+    min-width: 35%;
+    @include box-shadow(0,10px,5px,$section-shadow-color);
+    ul {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      list-style-type: none;
+      padding: 1vh 2vw;
+      @media #{$tablet-up} {
+        padding: 1vh 4vw;
+      }
+      li {
+        display: block;
+        margin: 0.5vh 0;
+        text-align: center;
+        a {
+          background-color: $button-main-color;
+          //border: 1px solid $app-main-text-action-color;
+          border-radius: 5px;
+          color: $app-main-text-action-color;
+          display: inline-block;
+          font-size: 2.5vw;
+          font-weight: bold;
+          padding: 0.5em 1em;
+          text-decoration: none;
+          text-transform: uppercase;
+          width: 100%;
+          transition: 0.5s ease-in-out;
+          @include box-shadow(0,3px,1px,$app-main-text-action-color);
+          &:hover {
+            background-color: $app-main-text-action-color;
+            color: $nav-text-color;
+            transform: skewX(-5deg);
+            @include box-shadow(0,6px,2px,$app-main-text-action-color);
+          }
+          &.left-panel-active-function {
+            color: $NavLink-active-main-color;
+            @include box-shadow(0,3px,1px,$NavLink-active-main-color);
+          }
+        }
+      }
+    }
+  }
+}

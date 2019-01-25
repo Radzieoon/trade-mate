@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {URL} from "../../../../const";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChartLine,faChartBar} from "@fortawesome/free-solid-svg-icons";
 
 export default class Instrument extends Component {
     constructor(props) {
@@ -8,6 +10,7 @@ export default class Instrument extends Component {
             data: null
         }
     }
+
     componentDidMount() {
         this.intervalId = setInterval(this.downloadInstrumentChanges, this.props.fetchInterval);
     }
@@ -46,10 +49,10 @@ export default class Instrument extends Component {
                     <td>{data.bidPrice}</td>
                     <td>{data.volume24h}</td>
                     <td>
-                        <button onClick={() => openModal(symbol,'orderBook')}>Open</button>
+                        <button onClick={() => openModal(symbol,'orderBook')}><FontAwesomeIcon icon={faChartBar}/></button>
                     </td>
                     <td>
-                        <button onClick={() => openModal(symbol,'chart')}>Open</button>
+                        <button onClick={() => openModal(symbol,'chart')}><FontAwesomeIcon icon={faChartLine}/></button>
                     </td>
                     <td>{data.timestamp}</td>
                 </tr>

@@ -1,5 +1,44 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@import "SassModules/_mediaQueries";
+@import "SassModules/_reset.scss";
+@import "SassModules/_mixins.scss";
+@import "SassModules/_fonts.scss";
+@import "SassModules/_colors.scss";
+@import "./Template/ProjectNav/projectNav";
+@import "./Template/LeftPanel/leftPanel";
+@import "./Template/template";
+@import "./LivePrices/_livePrices.scss";
+@import "LivePrices/Instrument/instrument";
+@import "Contact/contact";
+
+body {
+  @extend %app-background-gradient;
+  //@keyframes backgroundFade {
+  //  0%   {opacity: 0;}
+  //  10%  {opacity: 1;}
+  //  90% {opacity: 1;}
+  //  100% {opacity: 0;}
+  //}
+  //animation: backgroundFade 1s infinite;
+  font-family: 'economica', "Helvetica", "Arial", sans-serif;
+  height: 100%;
+  max-width: 1800px;
+  min-height: 100vh;
+  min-width: 320px;
+  padding-top: 4vh;
+  width: 100%;
+  div#root {
+    height: 100%;
+  }
+  .container {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 2vw;
+    //max-width: 96vw;
+    @media #{$tablet-up} {
+      padding: 0 4vw;
+      //max-width: 88vw;
+    }
+  }
 }
