@@ -20,7 +20,7 @@ main {
     font-size: 1vw;
     height: fit-content;
     min-height: 50%;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
     margin-left: 2%;
     margin-right: 2%;
     padding: 2em;
@@ -41,14 +41,33 @@ footer {
   align-items: center;
   //background-color: $panel-background-color;
   bottom: 0;
+  color: $nav-text-color;
   display: flex;
   font-weight: bold;
-  height: 3vh;
-  justify-content: center;
-  margin-top: 2vh;
+  height: 5vh;
+  justify-content: space-between;
+  margin-top: 5vh;
+  padding: 0 2vw;
   position: fixed;
   width: 100%;
   @include box-shadow(0,10px,5px,$section-shadow-color);
+  a {
+    color: $nav-text-color;
+    display: inline-block;
+    width: 10%;
+    height: 1em;
+    &:first-child {
+      height: fit-content;
+      width: fit-content;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  div {
+    font-size: 1.5em;
+  }
 }
 header li a,
 main li a {
