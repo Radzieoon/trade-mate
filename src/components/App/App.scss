@@ -7,6 +7,8 @@
 @import "./Template/LeftPanel/leftPanel";
 @import "./Template/template";
 @import "./LivePrices/_livePrices.scss";
+@import "LivePrices/Instrument/instrument";
+@import "Contact/contact";
 
 body {
   @extend %app-background-gradient;

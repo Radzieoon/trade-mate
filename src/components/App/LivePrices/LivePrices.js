@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {ALL_INSTRUMENTS} from "../../../const";
 import Instrument from './Instrument/Instrument';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faWindowClose,faArrowUp,faArrowDown} from "@fortawesome/free-solid-svg-icons";
 
 export default class LivePrices extends Component {
     constructor(props) {
@@ -11,10 +13,6 @@ export default class LivePrices extends Component {
             fetchInterval: 2000,
             chartSymbol: '',
             orderBookSymbol: ''
-            // modalSymbol: {
-            //     chart: '',
-            //     orderBook: ''
-            // }
         }
     }
     filteredInstruments = () => {
@@ -64,7 +62,7 @@ export default class LivePrices extends Component {
         }
     };
     render() {
-        const {filter,chartSymbol,orderBookSymbol} = this.state;
+        const {filter,chartSymbol,orderBookSymbol/*,sortAscending*/} = this.state;
         return (
             <section className='section-live-prices'>
                 <h1>Check the live prices of the chosen instrument</h1>
@@ -72,7 +70,7 @@ export default class LivePrices extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <td>Name</td>
+                            <td>Name {/*sortAscending ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>*/}</td>
                             <td>Last Price</td>
                             <td>Ask Price</td>
                             <td>Bid Price</td>
@@ -88,7 +86,7 @@ export default class LivePrices extends Component {
                 </table>
                 {chartSymbol.length > 0 && (
                     <div>
-                        <button onClick={() => this.closeModal('chart')}>X</button>
+                        <button onClick={() => this.closeModal('chart')}><FontAwesomeIcon icon={faWindowClose} /></button>
                         <TradingViewWidget autosize={true} allow_symbol_change={false} hide_side_toolbar={false} symbol={chartSymbol} interval='60' theme={Themes.DARK} locale='pl' studies={['MASimple@tv-basicstudies', 'StochasticRSI@tv-basicstudies']} container_id='tradingview_a3d39'/>
                     </div>
                 )}
