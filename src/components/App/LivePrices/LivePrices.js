@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,Fragment} from 'react';
 import {ALL_INSTRUMENTS} from "../../../const";
 import Instrument from './Instrument/Instrument';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
@@ -12,20 +12,45 @@ export default class LivePrices extends Component {
             filter: '',
             fetchInterval: 2000,
             chartSymbol: '',
-            orderBookSymbol: ''
+            orderBookSymbol: '',
+            sortedInstruments: ALL_INSTRUMENTS,
+            sortAscending: true,
         }
     }
+    sortInstrumentsNames = () => {
+        debugger;
+        let {sortedInstruments,sortAscending} = this.state;
+        sortedInstruments.sort((a,b) => {
+           if(sortAscending) {
+               if(a < b) {
+                   return -1
+               } else if(a > b) {
+                   return 1
+               } else return 0
+           } else {
+               if(b < a) {
+                   return -1
+               } else if(b > a) {
+                   return 1
+               } else return 0
+           }
+        });
+        this.setState({
+            sortAscending: !sortAscending,
+            sortedInstruments: sortedInstruments
+        })
+    };
     filteredInstruments = () => {
-        const {filter,fetchInterval} = this.state;
+        const {filter,fetchInterval,sortedInstruments} = this.state;
         if(filter === '') {
             return (
-                ALL_INSTRUMENTS.map(symbol => {
+                sortedInstruments.map(symbol => {
                     return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openModal={this.getSymbolForModal}/>
                 })
             )
         } else {
             return (
-                ALL_INSTRUMENTS.filter(symbol => {
+                sortedInstruments.filter(symbol => {
                     return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
                 }).map(symbol => {
                     return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openModal={this.getSymbolForModal}/>
@@ -39,7 +64,6 @@ export default class LivePrices extends Component {
         })
     };
     getSymbolForModal = (symbol,type) => {
-        // debugger;
         if(type === 'chart') {
             this.setState({
                 chartSymbol: symbol
@@ -70,7 +94,7 @@ export default class LivePrices extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <td>Name {/*sortAscending ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>*/}</td>
+                            <td onClick={this.sortInstrumentsNames}>Name {/*sortAscending ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>*/}</td>
                             <td>Last Price</td>
                             <td>Ask Price</td>
                             <td>Bid Price</td>
