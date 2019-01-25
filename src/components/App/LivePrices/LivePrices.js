@@ -1,4 +1,4 @@
-import React, {Component,Fragment} from 'react';
+import React, {Component} from 'react';
 import {ALL_INSTRUMENTS} from "../../../const";
 import Instrument from './Instrument/Instrument';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
@@ -18,7 +18,6 @@ export default class LivePrices extends Component {
         }
     }
     sortInstrumentsNames = () => {
-        debugger;
         let {sortedInstruments,sortAscending} = this.state;
         sortedInstruments.sort((a,b) => {
            if(sortAscending) {
@@ -86,7 +85,7 @@ export default class LivePrices extends Component {
         }
     };
     render() {
-        const {filter,chartSymbol,orderBookSymbol/*,sortAscending*/} = this.state;
+        const {filter,chartSymbol,orderBookSymbol,sortAscending} = this.state;
         return (
             <section className='section-live-prices'>
                 <h1>Check the live prices of the chosen instrument</h1>
@@ -94,7 +93,7 @@ export default class LivePrices extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <td onClick={this.sortInstrumentsNames}>Name {/*sortAscending ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>*/}</td>
+                            <td onClick={this.sortInstrumentsNames}>Name {sortAscending ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>}</td>
                             <td>Last Price</td>
                             <td>Ask Price</td>
                             <td>Bid Price</td>
@@ -116,7 +115,7 @@ export default class LivePrices extends Component {
                 )}
                 {orderBookSymbol.length > 0 && (
                     <div>
-                        <button onClick={() => this.closeModal('orderBook')}>X</button>
+                        <button onClick={() => this.closeModal('orderBook')}><FontAwesomeIcon icon={faWindowClose} /></button>
                         HELLO, I'M AN ORDER BOOK
                     </div>
                 )}

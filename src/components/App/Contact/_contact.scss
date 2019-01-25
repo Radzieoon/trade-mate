@@ -1,20 +1,10 @@
 section.section-contact {
-  li:first-of-type {
+  li:first-of-type, li:nth-of-type(2) {
     svg {
       color: $standard-text-color;
     }
   }
-  li:nth-of-type(2) {
-    svg {
-      color: $standard-text-color;
-    }
-  }
-  li:nth-of-type(3) {
-    svg {
-      color: $app-main-text-action-color;
-    }
-  }
-  li:last-of-type {
+  li:nth-of-type(3), li:last-of-type {
     svg {
       color: $app-main-text-action-color;
     }
