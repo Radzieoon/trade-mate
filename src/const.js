@@ -1,4 +1,5 @@
-export const URL = 'http://localhost:4444/';
+// export const URL = 'http://localhost:4444/';
+export const URL = 'http://trademate.eu-4.evennode.com/';
 // export const xbtusd = '?symbol=XBTUSD';
 // export const ethusd = '?symbol=ETHUSD';
 // export const bchh19 = '?symbol=BCHH19';
