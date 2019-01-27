@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# trade-mate
+The working app is accessible at https://radzieoon.github.io/trade-mate/#/ . By default I've set the app to fetch the data from Bitmex Delta Server which I've set online at https://trademate.eu-4.evennode.com/ . The server connects with a Bitmex websocket and makes live data access available through the standard API calls. However to run the full app functionality disabling CORS is needed. You can do this with a Chrome plugin https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi .
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -66,4 +70,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# trade-mate
