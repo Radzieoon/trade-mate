@@ -1,8 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # trade-mate
-The working app is accessible at https://radzieoon.github.io/trade-mate/#/ . By default I've set the app to fetch the data from Bitmex Delta Server which I've set online at https://trademate.eu-4.evennode.com/ . The server connects with a Bitmex websocket and makes live data access available through the standard API calls. However to run the full app functionality disabling CORS is needed. You can do this with a Chrome plugin https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi .
-
+The working app is accessible at https://radzieoon.github.io/trade-mate/#/ . By default I've set the app to fetch the data from Bitmex Delta Server which I've set online at https://trademate.eu-4.evennode.com/ . The server connects with a Bitmex websocket and makes live prices data access available through the standard API calls.
 
 ## Available Scripts
 
