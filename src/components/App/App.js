@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {HashRouter,Switch,Route} from "react-router-dom";
 import './App.scss';
-import {Template} from './Template/Template';
+import Template from './Template/Template';
 import {Home} from './Home/Home';
 import LivePrices from './LivePrices/LivePrices';
 import OrderSet from './OrderSet/OrderSet';

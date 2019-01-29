@@ -27,21 +27,20 @@ body {
   max-width: 1800px;
   min-height: 100vh;
   min-width: 320px;
-  padding-top: 4vh;
+  padding-top: 1vh;
   width: 100%;
+  @media #{$tablet-up} {
+    padding-top: 4vh;
+  }
   div#root {
     height: 100%;
   }
   .container {
-    display: flex;
     height: 100%;
-    justify-content: space-between;
     margin: 0 auto;
     padding: 0 2vw;
-    //max-width: 96vw;
     @media #{$tablet-up} {
       padding: 0 4vw;
-      //max-width: 88vw;
     }
   }
 }

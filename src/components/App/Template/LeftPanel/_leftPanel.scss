@@ -3,9 +3,19 @@ main {
     border-radius: 5px;
     background-color: $panel-background-color;
     height: fit-content;
+    left: -50vw;
     margin-bottom: 2vh;
     min-width: 35%;
+    position: absolute;
+    transition: 0.5s;
     @include box-shadow(0,10px,5px,$section-shadow-color);
+    @media #{$tablet-up} {
+      left: 0;
+      position: relative;
+    }
+    &.left-panel-visible {
+      left: 0;
+    }
     ul {
       display: flex;
       flex-flow: column nowrap;

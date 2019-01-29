@@ -3,19 +3,26 @@ header nav {
   border-radius: 5px;
   display: flex;
   font-size: 1vw;
-  height: 10vh;
-  justify-content: space-between;
-  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  flex-flow: column nowrap;
   width: 100%;
   @include box-shadow(0,10px,5px,$section-shadow-color);
+  @media #{$tablet-up} {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
   &>a {
     color: $nav-text-color;
-    font-size: 4em;
+    font-size: 8em;
     font-family: 'ethnocentric', 'economica', 'Helvetica', 'Arial', sans-serif;
     font-style: italic;
+    margin: 0.2em 0;
     text-align: center;
     text-decoration: none;
     text-shadow: 0 5px 5px LightGray;
+    @media #{$tablet-up} {
+      font-size: 4em;
+    }
     span {
       color: $app-main-text-action-color;
     }
@@ -23,9 +30,14 @@ header nav {
   &>ul {
     align-items: center;
     display: flex;
+    font-size: 1.8em;
     justify-content: space-between;
     list-style: none;
-    width: 40%;
+    margin: 0.6em;
+    @media #{$tablet-up} {
+      font-size: 1em;
+      width: 40%;
+    }
     li {
       display: inline-block;
       a {

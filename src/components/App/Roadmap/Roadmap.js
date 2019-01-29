@@ -18,7 +18,7 @@ export const Roadmap = () => {
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Dialog window with the general chart of the coresponding instrument</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Dialog window with an orderbook created on the fetched data basis</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Basic app styling</li>
-                        <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Full RWD</li>
+                        <li><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>Full RWD</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Fix: delta server response structure for all symbols query at once</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Fix: background switch</li>
                     </ul>
