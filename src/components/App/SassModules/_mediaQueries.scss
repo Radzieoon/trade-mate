@@ -1,5 +1,6 @@
-$tablet: "screen and (min-width: 730px) and (max-width: 1024px)";
-$desktop: "screen and (min-width: 1025px)";
-$tablet-up: "screen and (min-width: 730px)";
-$tablet-down: "screen and (max-width: 1024px)";
-$small-height: "screen and (max-height: 780px)";
+$tablet: "screen and (min-width: 768px) and (max-width: 1199px)";
+$desktop: "screen and (min-width: 1200px)";
+$tablet-up: "screen and (min-width: 768px)";
+$tablet-down: "screen and (max-width: 1199px)";
+//$small-height: "screen and (max-height: 780px)";
+$landscape-on-mobile: "screen and (orientation:landscape) and (max-width: 767px)";

@@ -29,7 +29,7 @@ export default class Template extends Component {
                 </header>
                 <main>
                     <div>
-                        <button onClick={this.triggerLeftPanel} className={leftPanelVisible ? 'left-panel-visible' : 'left-panel-out'}><FontAwesomeIcon icon={faBars}/></button>
+                        <button onClick={this.triggerLeftPanel} className={`hamburger ${leftPanelVisible ? 'left-panel-visible' : 'left-panel-out'}`}><FontAwesomeIcon icon={faBars}/></button>
                         <LeftPanel handleLeftPanelClass={leftPanelVisible}/>
                         {children}
                     </div>

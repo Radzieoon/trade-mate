@@ -1,11 +1,9 @@
 header {
   background-color: $panel-background-color;
   border-radius: 5px;
-  //height: calc(5vh + 5vw);
   margin: 0 2vw 2vh 2vw;
 }
 main {
-  //height: 80vh;
   margin: 2vh 2vw 0 2vw;
   @media #{$tablet-up} {
     margin: 4vh 2vw 0 2vw;
@@ -15,7 +13,7 @@ main {
     flex-flow: row wrap;
     height: 100%;
     position: relative;
-    &>button {
+    &>button.hamburger {
       align-items: center;
       background-color: $button-main-color;
       border: none;
@@ -23,25 +21,27 @@ main {
       color: $app-main-text-action-color;
       display: flex;
       filter: none;
-      font-size: 5.5vw;
+      font-size: 7vw;
       height: 1.2em;
       justify-content: center;
       left: 0.2em;
       outline: none;
       position: absolute;
-      //top: 0;
       top: -2em;
       transition: 0.5s;
       width: 1.2em;
       z-index: 999;
+      @media #{$tablet-up} {
+        display: none;
+      }
+      @media #{$landscape-on-mobile} {
+        font-size: 5.5vw;
+      }
       &.left-panel-visible {
         animation: bumpScale1 0.3s;
       }
       &.left-panel-out {
         animation: bumpScale2 0.3s;
-      }
-      @media #{$tablet-up} {
-        display: none;
       }
     }
   }

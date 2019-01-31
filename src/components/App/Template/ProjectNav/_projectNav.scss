@@ -23,6 +23,12 @@ header nav {
     @media #{$tablet-up} {
       font-size: 4em;
     }
+    @media #{$desktop} {
+      font-size: 48px;
+    }
+    @media #{$landscape-on-mobile} {
+      font-size: 6em;
+    }
     span {
       color: $app-main-text-action-color;
     }
@@ -49,6 +55,13 @@ header nav {
         padding: 0.3em 0.8em;
         text-decoration: none;
         transition: 0.5s ease-in-out;
+        @media #{$desktop} {
+          font-size: 36px;
+        }
+        @media #{$landscape-on-mobile} {
+          font-size: 2em;
+          padding: 0 0.8em;
+        }
         &:hover {
           background-color: $app-main-text-action-color;
           color: $nav-text-color;
