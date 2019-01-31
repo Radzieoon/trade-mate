@@ -35,9 +35,13 @@ export default class Template extends Component {
                     </div>
                 </main>
                 <footer>
-                    <a href='https://github.com/Radzieoon/trade-mate'><FontAwesomeIcon icon={faGithub} size='2x' /></a>
+                    <div>
+                        <a href='https://github.com/Radzieoon/trade-mate'><FontAwesomeIcon icon={faGithub} size='2x' /></a>
+                    </div>
                     <div>2019</div>
-                    <a href='https://www.bitmex.com/'><img src={BitmexLogo} alt='bitmex-logo'/></a>
+                    <div>
+                        <a href='https://www.bitmex.com/'><img src={BitmexLogo} alt='bitmex-logo'/></a>
+                    </div>
                 </footer>
             </Fragment>
         );

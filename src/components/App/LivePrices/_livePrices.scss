@@ -1,5 +1,4 @@
 section.section-live-prices {
-  //position: relative;
   input {
     border-radius: 5px;
     border: none;
@@ -13,11 +12,14 @@ section.section-live-prices {
   table {
     border: 1px solid black;
     border-collapse: collapse;
-    font-size: 2em;
+    font-size: 1.9em;
     thead {
       font-weight: bold;
       td:first-child {
 	    cursor:pointer;
+        svg {
+          color: $app-main-text-action-color;
+        }
       }
       td:nth-child(5) {
         cursor: pointer;
