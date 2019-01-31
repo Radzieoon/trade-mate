@@ -1,14 +1,36 @@
 section.section-live-prices {
-  button {
-    background-color: $app-main-text-action-color;
-    border: none;
-    border-radius: 5px;
-    height: 2em;
-    outline: 0;
-    width: 3em;
-    svg {
-      color: $nav-text-color;
-      font-size: 1.5em;
+  table {
+    tbody td {
+      font-family: 'Helvetica', sans-serif;
+      padding-left: 0.2em;
+      padding-right: 0.2em;
+      &:nth-child(6) button, &:nth-child(7) button {
+        background-color: $app-main-text-action-color;
+        border: none;
+        border-radius: 5px;
+        height: 1.5em;
+        outline: 0;
+        width: 2em;
+        @media #{$tablet} {
+          height: 2em;
+          width: 3em;
+        }
+        @media #{$desktop} {
+          height: 2.7em;
+          width: 4em;
+        }
+        svg {
+          color: $nav-text-color;
+          cursor: pointer;
+          font-size: 1em;
+          @media #{$tablet} {
+            font-size: 2em;
+          }
+          @media #{$desktop} {
+            font-size: 2.5em;
+          }
+        }
+      }
     }
   }
 }

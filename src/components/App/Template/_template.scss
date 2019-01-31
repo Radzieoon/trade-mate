@@ -53,17 +53,47 @@ main {
     font-size: 1vw;
     height: fit-content;
     min-height: 50%;
-    margin-bottom: 5%;
+    margin-bottom: 6%;
     margin-left: 2%;
     margin-right: 2%;
     padding: 2em;
     @include box-shadow(0,3px,1px,$main-section-color);
-    h1 {
-      font-size: 3em;
+    @media #{$landscape-on-mobile} {
+      margin-bottom: 7%;
     }
-    ul {
+    h1 {
+      font-size: 6em;
+      @media #{$landscape-on-mobile} {
+        font-size: 5em;
+      }
+      @media #{$tablet-up} {
+        font-size: 4em;
+      }
+    }
+    h2 {
+      font-size: 3.5em;
+      @media #{$landscape-on-mobile} {
+        font-size: 2.5em;
+      }
+    }
+    p {
+      font-size: 4em;
+      @media #{$landscape-on-mobile} {
+        font-size: 4em;
+      }
+    }
+    &>ul {
       padding-left: 2em;
       margin: 2em 0;
+      &>li {
+        font-size: 5em;
+        @media #{$landscape-on-mobile} {
+          font-size: 4em;
+        }
+        @media #{$tablet-up} {
+          font-size: 3em;
+        }
+      }
     }
   }
 }
@@ -74,29 +104,47 @@ footer {
   color: $nav-text-color;
   display: flex;
   font-weight: bold;
-  height: 5vh;
   justify-content: space-between;
-  margin-top: 5vh;
   padding: 0 2vw;
   position: fixed;
   width: 100%;
   @include box-shadow(0,10px,5px,$section-shadow-color);
-  a {
-    color: $nav-text-color;
-    display: inline-block;
-    width: 10%;
-    height: 1em;
-    &:first-child {
-      height: fit-content;
-      width: fit-content;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
   div {
-    font-size: 1.5em;
+    display: flex;
+    width: 30%;
+    a {
+      color: $nav-text-color;
+      margin: 0.2em 0;
+    }
+    &:first-of-type {
+      justify-content: flex-start;
+      a {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        svg {
+          font-size: 1.5em;
+        }
+      }
+    }
+    &:nth-of-type(2) {
+      font-size: 1.5em;
+      justify-content: center;
+    }
+    &:last-of-type {
+      justify-content: flex-end;
+      a {
+        display: flex;
+        width: 6em;
+        @media #{$landscape-on-mobile} {
+          width: 6em;
+        }
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
   }
 }
 header li a,

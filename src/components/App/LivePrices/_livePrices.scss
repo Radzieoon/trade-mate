@@ -1,23 +1,31 @@
 section.section-live-prices {
-  //position: relative;
   input {
     border-radius: 5px;
     border: none;
     display:inline-block;
-    font-size: 1.5em;
+    font-size: 2.5em;
     margin: 1em 0;
     outline: none;
     padding: 0.5em 1em;
     @include box-shadow(0,1px,1px,$app-main-text-action-color);
+    @media #{$landscape-on-mobile}, #{$tablet-up} {
+      font-size: 2em;
+    }
   }
   table {
     border: 1px solid black;
     border-collapse: collapse;
-    font-size: 2em;
+    font-size: 1.7em;
+    @media #{$landscape-on-mobile}, #{$tablet-up} {
+      font-size: 1.9em;
+    }
     thead {
       font-weight: bold;
       td:first-child {
 	    cursor:pointer;
+        svg {
+          color: $app-main-text-action-color;
+        }
       }
       td:nth-child(5) {
         cursor: pointer;
@@ -26,14 +34,6 @@ section.section-live-prices {
     td {
       border: 1px solid black;
       text-align: center;
-    }
-    tbody td {
-      font-family: 'Helvetica', sans-serif;
-      padding-left: 0.2em;
-      padding-right: 0.2em;
-      &:nth-child(6) svg, &:nth-child(7) svg {
-        cursor: pointer;
-      }
     }
   }
   &>div {
