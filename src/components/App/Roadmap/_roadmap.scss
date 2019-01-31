@@ -4,15 +4,19 @@ main {
       list-style-type: none;
       padding: 0;
       &>li {
-        font-size: 3em;
+        margin: 0.2em 0;
         svg {
           color: $app-main-text-action-color;
           margin-right: 0.5em;
         }
+        &>div {
+          font-size: 1.25em;
+        }
         &>ul {
-          font-size: 0.75em;
+          font-size: 1em;
           list-style-type: none;
           margin: 0;
+          padding-left: 2em;
         }
       }
     }

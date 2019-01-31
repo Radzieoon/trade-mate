@@ -1,9 +1,6 @@
 section.section-contact {
   ul {
     list-style-type: none;
-    li {
-      font-size: 3em;
-    }
     li:first-of-type, li:nth-of-type(2) {
       svg {
         color: $standard-text-color;
