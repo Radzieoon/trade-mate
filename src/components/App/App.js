@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {HashRouter,Switch,Route} from "react-router-dom";
+import {BrowserRouter,Switch,Route} from "react-router-dom";
 import './App.scss';
 import Template from './Template/Template';
 import {Home} from './Home/Home';
@@ -27,7 +27,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <HashRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Template>
                     <Switch>
                         <Route exact path="/" component={Home} />
@@ -40,7 +40,7 @@ export default class App extends Component {
                         <Route component={NotFound} />
                     </Switch>
                 </Template>
-            </HashRouter>
+            </BrowserRouter>
         );
     }
 }

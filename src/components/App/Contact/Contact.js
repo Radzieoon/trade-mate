@@ -10,8 +10,8 @@ export const Contact = () => {
             <ul>
                 <li><FontAwesomeIcon icon={faEnvelope}/> rgrabowski.biz@gmail.com</li>
                 <li><FontAwesomeIcon icon={faPhone}/> +48 691044199</li>
-                <li><a href='https://github.com/Radzieoon'><FontAwesomeIcon icon={faGithub}/></a></li>
-                <li><a href='https://twitter.com/Radzieoon'><FontAwesomeIcon icon={faTwitter}/></a></li>
+                <li><a href='https://github.com/Radzieoon' target='_blank' rel='noopener noreferrer'><FontAwesomeIcon icon={faGithub}/></a></li>
+                <li><a href='https://twitter.com/Radzieoon' target='_blank' rel='noopener noreferrer'><FontAwesomeIcon icon={faTwitter}/></a></li>
             </ul>
         </section>
     );

@@ -36,11 +36,11 @@ export default class Template extends Component {
                 </main>
                 <footer>
                     <div>
-                        <a href='https://github.com/Radzieoon/trade-mate'><FontAwesomeIcon icon={faGithub} size='2x' /></a>
+                        <a href='https://github.com/Radzieoon/trade-mate' target='_blank' rel='noopener noreferrer'><FontAwesomeIcon icon={faGithub} size='2x' /></a>
                     </div>
                     <div>2019</div>
                     <div>
-                        <a href='https://www.bitmex.com/'><img src={BitmexLogo} alt='bitmex-logo'/></a>
+                        <a href='https://www.bitmex.com/' target='_blank' rel='noopener noreferrer'><img src={BitmexLogo} alt='bitmex-logo'/></a>
                     </div>
                 </footer>
             </Fragment>
