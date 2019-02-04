@@ -7,28 +7,27 @@ export default class Instrument extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: null
+            data: []
         }
     }
 
     componentDidMount() {
-        this.intervalId = setInterval(this.downloadInstrumentChanges, this.props.fetchInterval);
+        this.intervalId = setInterval(this.downloadInstrumentsChanges, this.props.fetchInterval);
     }
     componentWillUnmount() {
         clearInterval(this.intervalId);
     }
-    downloadInstrumentChanges = () => {
+    downloadInstrumentsChanges = () => {
         const {data} = this.state;
-        fetch(`${URL}instrument/?symbol=${this.props.symbol}`,{headers: {'accept': 'application/json'}}).then(resp => {
+        fetch(`${URL}instrument`,{headers: {'accept': 'application/json'}}).then(resp => {
             if(resp.ok) {
                 return resp.json()
             } else {
                 console.log(resp)
             }
-        }).then(bresp => {
-            // console.log('bresp[0]: ',bresp[0]);
+        }).then(resp => {
             this.setState({
-                data: bresp[0]
+                data: resp
             });
             console.log('data-state: ',data);
         });
