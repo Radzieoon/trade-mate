@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "1b5ccc99f984bd03ccd8",
-    "url": "/trade-mate/static/css/main.3c500bac.chunk.css"
+    "revision": "abf2b8440e2be2cd8bff",
+    "url": "/trade-mate/static/css/main.3f0b77b3.chunk.css"
   },
   {
-    "revision": "1b5ccc99f984bd03ccd8",
-    "url": "/trade-mate/static/js/main.1b5ccc99.chunk.js"
+    "revision": "abf2b8440e2be2cd8bff",
+    "url": "/trade-mate/static/js/main.abf2b844.chunk.js"
   },
   {
     "revision": "ea96f715368ab693f5e0",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/chart-bg6.ac357a57.jpg"
   },
   {
-    "revision": "eae5f3ce45c364bb900df7c9d4060948",
+    "revision": "bb43e14eea651537325bd900bea38181",
     "url": "/trade-mate/index.html"
   }
 ];
