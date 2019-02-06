@@ -19,7 +19,8 @@ export default class LivePrices extends Component {
     }
 
     componentDidMount() {
-        this.intervalId = setInterval(this.downloadInstrumentsChanges, this.props.fetchInterval);
+        const {fetchInterval} = this.props;
+        this.intervalId = setInterval(this.downloadInstrumentsChanges, fetchInterval);
     }
     componentWillUnmount() {
         clearInterval(this.intervalId);
@@ -33,6 +34,7 @@ export default class LivePrices extends Component {
                 console.log(resp)
             }
         }).then(resp => {
+            resp.forEach((el,index,arr) => arr[index] = el[0]);
             this.setState({
                 data: resp
             });
@@ -62,12 +64,11 @@ export default class LivePrices extends Component {
         })
     };
     filteredInstruments = () => {
-        const {filter,sortedInstruments} = this.state;
-        const {fetchInterval} = this.props;
+        const {filter,sortedInstruments,data} = this.state;
         if(filter === '') {
             return (
                 sortedInstruments.map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openModal={this.getSymbolForModal}/>
+                    return <Instrument key={symbol} symbol={symbol} openModal={this.getSymbolForModal}/>
                 })
             )
         } else {
@@ -75,7 +76,7 @@ export default class LivePrices extends Component {
                 sortedInstruments.filter(symbol => {
                     return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
                 }).map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openModal={this.getSymbolForModal}/>
+                    return <Instrument key={symbol} symbol={symbol} openModal={this.getSymbolForModal}/>
                 })
             )
         }
