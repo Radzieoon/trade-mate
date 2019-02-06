@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ALL_INSTRUMENTS} from "../../../const";
+import {ALL_INSTRUMENTS, URL} from "../../../const";
 import Instrument from './Instrument/Instrument';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -9,14 +9,36 @@ export default class LivePrices extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filter: '',
-            fetchInterval: 2000,
             chartSymbol: '',
+            data: [],
+            filter: '',
             orderBookSymbol: '',
             sortedInstruments: ALL_INSTRUMENTS,
-            sortAscending: true,
+            sortAscending: true
         }
     }
+
+    componentDidMount() {
+        this.intervalId = setInterval(this.downloadInstrumentsChanges, this.props.fetchInterval);
+    }
+    componentWillUnmount() {
+        clearInterval(this.intervalId);
+    }
+    downloadInstrumentsChanges = () => {
+        const {data} = this.state;
+        fetch(`${URL}instrument`,{headers: {'accept': 'application/json'}}).then(resp => {
+            if(resp.ok) {
+                return resp.json()
+            } else {
+                console.log(resp)
+            }
+        }).then(resp => {
+            this.setState({
+                data: resp
+            });
+            console.log('data-state: ',data);
+        });
+    };
     sortInstrumentsNames = () => {
         let {sortedInstruments,sortAscending} = this.state;
         sortedInstruments.sort((a,b) => {
@@ -40,7 +62,8 @@ export default class LivePrices extends Component {
         })
     };
     filteredInstruments = () => {
-        const {filter,fetchInterval,sortedInstruments} = this.state;
+        const {filter,sortedInstruments} = this.state;
+        const {fetchInterval} = this.props;
         if(filter === '') {
             return (
                 sortedInstruments.map(symbol => {
