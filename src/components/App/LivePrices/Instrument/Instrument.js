@@ -4,7 +4,7 @@ import {faChartLine,faChartBar} from "@fortawesome/free-solid-svg-icons";
 
 export default class Instrument extends Component {
     render() {
-        const {symbol,data,openModal} = this.props;
+        const {data,openModal} = this.props;
         return (
             <Fragment>
                 <tr>
@@ -14,10 +14,10 @@ export default class Instrument extends Component {
                     <td>{data.bidPrice}</td>
                     <td>{data.volume24h}</td>
                     <td>
-                        <button onClick={() => openModal(symbol,'orderBook')}><FontAwesomeIcon icon={faChartBar}/></button>
+                        <button onClick={() => openModal(data.symbol,'orderBook')}><FontAwesomeIcon icon={faChartBar}/></button>
                     </td>
                     <td>
-                        <button onClick={() => openModal(symbol,'chart')}><FontAwesomeIcon icon={faChartLine}/></button>
+                        <button onClick={() => openModal(data.symbol,'chart')}><FontAwesomeIcon icon={faChartLine}/></button>
                     </td>
                     <td>{data.timestamp}</td>
                 </tr>

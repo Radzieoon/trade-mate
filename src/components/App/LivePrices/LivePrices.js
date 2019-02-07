@@ -13,7 +13,7 @@ export default class LivePrices extends Component {
             data: [],
             filter: '',
             orderBookSymbol: '',
-            sortedInstruments: [],
+            sortedInstrumentsSymbols: [],
             sortAscending: true
         };
     }
@@ -26,10 +26,10 @@ export default class LivePrices extends Component {
         //     reject('Symbols fetch error!')
         // });
         // setInstrumentSymbols.then(result => {
-        //     const sortedInstruments = this.state.data.forEach(el => el.symbol);
-        //     console.log(sortedInstruments);
+        //     const sortedInstrumentsSymbols = this.state.data.forEach(el => el.symbol);
+        //     console.log(sortedInstrumentsSymbols);
         //     this.setState({
-        //        sortedInstruments
+        //        sortedInstrumentsSymbols
         //     });
         //     console.log(result)
         // }).catch(error => console.log(error));
@@ -40,7 +40,7 @@ export default class LivePrices extends Component {
         clearInterval(this.intervalId);
     }
     downloadInstrumentsChanges = (isFirstTime) => {
-        const {data,sortedInstruments} = this.state;
+        const {data} = this.state;
         fetch(`${URL}instrument`,{headers: {'accept': 'application/json'}}).then(resp => {
             if(resp.ok) {
                 return resp.json()
@@ -54,19 +54,19 @@ export default class LivePrices extends Component {
             });
             if(isFirstTime) {
                 console.log('first response: ',resp);
-                const sortedInstruments = resp.map(el => el.symbol);
-                console.log('fetched intrument symbols: ',sortedInstruments);
+                const sortedInstrumentsSymbols = resp.map(el => el.symbol);
+                console.log('fetched intrument symbols: ',sortedInstrumentsSymbols);
                 this.setState({
-                    sortedInstruments
+                    sortedInstrumentsSymbols
                 });
             }
             console.log('state-data: ',data);
-            console.log('state-sortedInstruments: ',sortedInstruments);
+            console.log('state-sortedInstrumentsSymbols: ',this.state.sortedInstrumentsSymbols);
         });
     };
     sortInstrumentsNames = () => {
-        let {sortedInstruments,sortAscending} = this.state;
-        sortedInstruments.sort((a,b) => {
+        let {sortedInstrumentsSymbols,sortAscending} = this.state;
+        sortedInstrumentsSymbols.sort((a,b) => {
            if(sortAscending) {
                if(a < b) {
                    return -1
@@ -83,27 +83,27 @@ export default class LivePrices extends Component {
         });
         this.setState({
             sortAscending: !sortAscending,
-            sortedInstruments
+            sortedInstrumentsSymbols
         })
     };
     filteredInstruments = () => {
-        const {filter,sortedInstruments,data} = this.state;
+        const {filter,sortedInstrumentsSymbols,data} = this.state;
         if(filter === '') {
             return (
-                sortedInstruments.map(symbol => {
+                sortedInstrumentsSymbols.map(symbol => {
                     const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
                     // console.log('Instrument data: ',instrumentData);
-                    return <Instrument key={symbol} symbol={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
+                    return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
                 })
             )
         } else {
             return (
-                sortedInstruments.filter(symbol => {
+                sortedInstrumentsSymbols.filter(symbol => {
                     return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
                 }).map(symbol => {
                     const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
                     // console.log('Instrument data: ',instrumentData);
-                    return <Instrument key={symbol} symbol={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
+                    return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
                 })
             )
         }
@@ -136,7 +136,7 @@ export default class LivePrices extends Component {
         }
     };
     render() {
-        const {filter,chartSymbol,orderBookSymbol,sortAscending,sortedInstruments} = this.state;
+        const {filter,chartSymbol,orderBookSymbol,sortAscending,sortedInstrumentsSymbols} = this.state;
         return (
             <section className='section-live-prices'>
                 <h1>Check the live prices of the chosen instrument</h1>
@@ -155,7 +155,7 @@ export default class LivePrices extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {sortedInstruments.length > 0 && this.filteredInstruments()}
+                    {sortedInstrumentsSymbols.length ? this.filteredInstruments() : <tr><td colSpan='8' className='loading-live-prices'>Loading...</td></tr>}
                     </tbody>
                 </table>
                 {chartSymbol.length > 0 && (
