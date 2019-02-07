@@ -13,20 +13,34 @@ export default class LivePrices extends Component {
             data: [],
             filter: '',
             orderBookSymbol: '',
-            sortedInstruments: ALL_INSTRUMENTS,
+            sortedInstruments: [],
             sortAscending: true
-        }
+        };
     }
 
     componentDidMount() {
         const {fetchInterval} = this.props;
-        this.intervalId = setInterval(this.downloadInstrumentsChanges, fetchInterval);
+        // const setInstrumentSymbols = new Promise((resolve, reject) => {
+        //     this.downloadInstrumentsChanges();
+        //     resolve('Symbols fetched');
+        //     reject('Symbols fetch error!')
+        // });
+        // setInstrumentSymbols.then(result => {
+        //     const sortedInstruments = this.state.data.forEach(el => el.symbol);
+        //     console.log(sortedInstruments);
+        //     this.setState({
+        //        sortedInstruments
+        //     });
+        //     console.log(result)
+        // }).catch(error => console.log(error));
+        this.downloadInstrumentsChanges(true);
+        this.intervalId = setInterval(() => this.downloadInstrumentsChanges(false), fetchInterval);
     }
     componentWillUnmount() {
         clearInterval(this.intervalId);
     }
-    downloadInstrumentsChanges = () => {
-        const {data} = this.state;
+    downloadInstrumentsChanges = (isFirstTime) => {
+        const {data,sortedInstruments} = this.state;
         fetch(`${URL}instrument`,{headers: {'accept': 'application/json'}}).then(resp => {
             if(resp.ok) {
                 return resp.json()
@@ -38,7 +52,16 @@ export default class LivePrices extends Component {
             this.setState({
                 data: resp
             });
-            console.log('data-state: ',data);
+            if(isFirstTime) {
+                console.log('first response: ',resp);
+                const sortedInstruments = resp.map(el => el.symbol);
+                console.log('fetched intrument symbols: ',sortedInstruments);
+                this.setState({
+                    sortedInstruments
+                });
+            }
+            console.log('state-data: ',data);
+            console.log('state-sortedInstruments: ',sortedInstruments);
         });
     };
     sortInstrumentsNames = () => {
@@ -60,7 +83,7 @@ export default class LivePrices extends Component {
         });
         this.setState({
             sortAscending: !sortAscending,
-            sortedInstruments: sortedInstruments
+            sortedInstruments
         })
     };
     filteredInstruments = () => {
@@ -109,7 +132,7 @@ export default class LivePrices extends Component {
         }
     };
     render() {
-        const {filter,chartSymbol,orderBookSymbol,sortAscending} = this.state;
+        const {filter,chartSymbol,orderBookSymbol,sortAscending,sortedInstruments} = this.state;
         return (
             <section className='section-live-prices'>
                 <h1>Check the live prices of the chosen instrument</h1>
@@ -128,7 +151,7 @@ export default class LivePrices extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.filteredInstruments()}
+                        {sortedInstruments.length > 0 && this.filteredInstruments()}
                     </tbody>
                 </table>
                 {chartSymbol.length > 0 && (
