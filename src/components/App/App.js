@@ -26,6 +26,7 @@ export default class App extends Component {
     }
 
     render() {
+        //TODO: fetchInterval 1s
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Template>

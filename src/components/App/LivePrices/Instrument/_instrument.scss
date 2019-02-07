@@ -4,6 +4,10 @@ section.section-live-prices {
       font-family: 'Helvetica', sans-serif;
       padding-left: 0.2em;
       padding-right: 0.2em;
+      &.loading-live-prices {
+        width: 85vw;
+        font-size: 3em;
+      }
       &:nth-child(6) button, &:nth-child(7) button {
         background-color: $app-main-text-action-color;
         border: none;

@@ -1,25 +1,59 @@
 import React, {Component} from 'react';
-import {ALL_INSTRUMENTS} from "../../../const";
+import {URL} from "../../../const";
 import Instrument from './Instrument/Instrument';
-import TradingViewWidget, {Themes} from 'react-tradingview-widget';
+import TVWidget from './TVWidget/TVWidget';
+import {OrderBook} from './OrderBook/OrderBook';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faWindowClose,faArrowUp,faArrowDown} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUp,faArrowDown} from "@fortawesome/free-solid-svg-icons";
 
 export default class LivePrices extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filter: '',
-            fetchInterval: 2000,
             chartSymbol: '',
+            data: [],
+            filter: '',
             orderBookSymbol: '',
-            sortedInstruments: ALL_INSTRUMENTS,
-            sortAscending: true,
-        }
+            sortedInstrumentsSymbols: [],
+            sortAscending: true
+        };
     }
+
+    componentDidMount() {
+        const {fetchInterval} = this.props;
+        this.downloadInstrumentsChanges(true);
+        this.intervalId = setInterval(() => this.downloadInstrumentsChanges(false), fetchInterval);
+    }
+    componentWillUnmount() {
+        clearInterval(this.intervalId);
+    }
+    downloadInstrumentsChanges = (isFirstTime) => {
+        fetch(`${URL}instrument`,{headers: {'accept': 'application/json'}}).then(resp => {
+            if(resp.ok) {
+                return resp.json()
+            } else {
+                console.log(resp)
+            }
+        }).then(resp => {
+            resp.forEach((el,index,arr) => arr[index] = el[0]);
+            this.setState({
+                data: resp
+            });
+            if(isFirstTime) {
+                // console.log('first response: ',resp);
+                const sortedInstrumentsSymbols = resp.map(el => el.symbol);
+                // console.log('fetched intrument symbols: ',sortedInstrumentsSymbols);
+                this.setState({
+                    sortedInstrumentsSymbols
+                });
+            }
+            // console.log('state-data: ',this.state.data);
+            // console.log('state-sortedInstrumentsSymbols: ',this.state.sortedInstrumentsSymbols);
+        });
+    };
     sortInstrumentsNames = () => {
-        let {sortedInstruments,sortAscending} = this.state;
-        sortedInstruments.sort((a,b) => {
+        let {sortedInstrumentsSymbols,sortAscending} = this.state;
+        sortedInstrumentsSymbols.sort((a,b) => {
            if(sortAscending) {
                if(a < b) {
                    return -1
@@ -36,23 +70,25 @@ export default class LivePrices extends Component {
         });
         this.setState({
             sortAscending: !sortAscending,
-            sortedInstruments: sortedInstruments
+            sortedInstrumentsSymbols
         })
     };
     filteredInstruments = () => {
-        const {filter,fetchInterval,sortedInstruments} = this.state;
+        const {filter,sortedInstrumentsSymbols,data} = this.state;
         if(filter === '') {
             return (
-                sortedInstruments.map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openModal={this.getSymbolForModal}/>
+                sortedInstrumentsSymbols.map(symbol => {
+                    const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
+                    return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
                 })
             )
         } else {
             return (
-                sortedInstruments.filter(symbol => {
+                sortedInstrumentsSymbols.filter(symbol => {
                     return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
                 }).map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} fetchInterval={fetchInterval} openModal={this.getSymbolForModal}/>
+                    const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
+                    return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
                 })
             )
         }
@@ -85,7 +121,7 @@ export default class LivePrices extends Component {
         }
     };
     render() {
-        const {filter,chartSymbol,orderBookSymbol,sortAscending} = this.state;
+        const {filter,chartSymbol,orderBookSymbol,sortAscending,sortedInstrumentsSymbols} = this.state;
         return (
             <section className='section-live-prices'>
                 <h1>Check the live prices of the chosen instrument</h1>
@@ -104,21 +140,11 @@ export default class LivePrices extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.filteredInstruments()}
+                    {sortedInstrumentsSymbols.length ? this.filteredInstruments() : <tr><td colSpan='8' className='loading-live-prices'>Loading...</td></tr>}
                     </tbody>
                 </table>
-                {chartSymbol.length > 0 && (
-                    <div>
-                        <button onClick={() => this.closeModal('chart')}><FontAwesomeIcon icon={faWindowClose} /></button>
-                        <TradingViewWidget autosize={true} allow_symbol_change={false} hide_side_toolbar={false} symbol={chartSymbol} interval='60' theme={Themes.DARK} locale='pl' studies={['MASimple@tv-basicstudies', 'StochasticRSI@tv-basicstudies']} container_id='tradingview_a3d39'/>
-                    </div>
-                )}
-                {orderBookSymbol.length > 0 && (
-                    <div>
-                        <button onClick={() => this.closeModal('orderBook')}><FontAwesomeIcon icon={faWindowClose} /></button>
-                        HELLO, I'M AN ORDER BOOK
-                    </div>
-                )}
+                {chartSymbol.length > 0 && <TVWidget chartSymbol={chartSymbol} closeModal={this.closeModal}/>}
+                {orderBookSymbol.length > 0 && <OrderBook orderBookSymbol={orderBookSymbol} closeModal={this.closeModal}/>}
             </section>
         );
     }
