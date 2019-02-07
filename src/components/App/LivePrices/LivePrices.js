@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {URL} from "../../../const";
 import Instrument from './Instrument/Instrument';
-import TradingViewWidget, {Themes} from 'react-tradingview-widget';
+import TVWidget from './TVWidget/TVWidget';
+import {OrderBook} from './OrderBook/OrderBook';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faWindowClose,faArrowUp,faArrowDown} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUp,faArrowDown} from "@fortawesome/free-solid-svg-icons";
 
 export default class LivePrices extends Component {
     constructor(props) {
@@ -20,19 +21,6 @@ export default class LivePrices extends Component {
 
     componentDidMount() {
         const {fetchInterval} = this.props;
-        // const setInstrumentSymbols = new Promise((resolve, reject) => {
-        //     this.downloadInstrumentsChanges();
-        //     resolve('Symbols fetched');
-        //     reject('Symbols fetch error!')
-        // });
-        // setInstrumentSymbols.then(result => {
-        //     const sortedInstrumentsSymbols = this.state.data.forEach(el => el.symbol);
-        //     console.log(sortedInstrumentsSymbols);
-        //     this.setState({
-        //        sortedInstrumentsSymbols
-        //     });
-        //     console.log(result)
-        // }).catch(error => console.log(error));
         this.downloadInstrumentsChanges(true);
         this.intervalId = setInterval(() => this.downloadInstrumentsChanges(false), fetchInterval);
     }
@@ -40,7 +28,6 @@ export default class LivePrices extends Component {
         clearInterval(this.intervalId);
     }
     downloadInstrumentsChanges = (isFirstTime) => {
-        const {data} = this.state;
         fetch(`${URL}instrument`,{headers: {'accept': 'application/json'}}).then(resp => {
             if(resp.ok) {
                 return resp.json()
@@ -53,15 +40,15 @@ export default class LivePrices extends Component {
                 data: resp
             });
             if(isFirstTime) {
-                console.log('first response: ',resp);
+                // console.log('first response: ',resp);
                 const sortedInstrumentsSymbols = resp.map(el => el.symbol);
-                console.log('fetched intrument symbols: ',sortedInstrumentsSymbols);
+                // console.log('fetched intrument symbols: ',sortedInstrumentsSymbols);
                 this.setState({
                     sortedInstrumentsSymbols
                 });
             }
-            console.log('state-data: ',data);
-            console.log('state-sortedInstrumentsSymbols: ',this.state.sortedInstrumentsSymbols);
+            // console.log('state-data: ',this.state.data);
+            // console.log('state-sortedInstrumentsSymbols: ',this.state.sortedInstrumentsSymbols);
         });
     };
     sortInstrumentsNames = () => {
@@ -92,7 +79,6 @@ export default class LivePrices extends Component {
             return (
                 sortedInstrumentsSymbols.map(symbol => {
                     const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
-                    // console.log('Instrument data: ',instrumentData);
                     return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
                 })
             )
@@ -102,7 +88,6 @@ export default class LivePrices extends Component {
                     return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
                 }).map(symbol => {
                     const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
-                    // console.log('Instrument data: ',instrumentData);
                     return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
                 })
             )
@@ -158,18 +143,8 @@ export default class LivePrices extends Component {
                     {sortedInstrumentsSymbols.length ? this.filteredInstruments() : <tr><td colSpan='8' className='loading-live-prices'>Loading...</td></tr>}
                     </tbody>
                 </table>
-                {chartSymbol.length > 0 && (
-                    <div>
-                        <button onClick={() => this.closeModal('chart')}><FontAwesomeIcon icon={faWindowClose} /></button>
-                        <TradingViewWidget autosize={true} allow_symbol_change={false} hide_side_toolbar={false} symbol={chartSymbol} interval='60' theme={Themes.DARK} locale='pl' studies={['MASimple@tv-basicstudies', 'StochasticRSI@tv-basicstudies']} container_id='tradingview_a3d39'/>
-                    </div>
-                )}
-                {orderBookSymbol.length > 0 && (
-                    <div>
-                        <button onClick={() => this.closeModal('orderBook')}><FontAwesomeIcon icon={faWindowClose} /></button>
-                        HELLO, I'M AN ORDER BOOK
-                    </div>
-                )}
+                {chartSymbol.length > 0 && <TVWidget chartSymbol={chartSymbol} closeModal={this.closeModal}/>}
+                {orderBookSymbol.length > 0 && <OrderBook orderBookSymbol={orderBookSymbol} closeModal={this.closeModal}/>}
             </section>
         );
     }
