@@ -26,13 +26,12 @@ export default class App extends Component {
     }
 
     render() {
-        //TODO: fetchInterval 1s
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Template>
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route path="/live_prices" render={props => <LivePrices {...props} fetchInterval={3000}/>} />
+                        <Route path="/live_prices" render={props => <LivePrices {...props} fetchInterval={1000}/>} />
                         <Route path="/trigger_settings" component={TriggerSettings} />
                         <Route path="/order_set" component={OrderSet} />
                         <Route path="/roadmap" component={Roadmap} />

@@ -8,7 +8,7 @@ export const Roadmap = () => {
             <h1>Feature roadmap</h1>
             <ul>
                 <li>
-                    <div><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>01-2019</div>
+                    <div><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>01/02-2019</div>
                     <ul>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Delta Server set up and configured</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Router app structure</li>
@@ -18,15 +18,16 @@ export const Roadmap = () => {
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Dialog window with the general chart of the coresponding instrument</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Dialog window with an orderbook created on the fetched data basis</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Basic app styling</li>
-                        <li><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>Full RWD</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Full RWD</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Fix: delta server response structure for all symbols query at once</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Fix: background switch</li>
                     </ul>
                 </li>
                 <li>
-                    <div><FontAwesomeIcon icon={faCircle} size={'xs'}/>02-2019</div>
+                    <div><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>02/03-2019</div>
                     <ul>
-                        <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Fix: reduce the fetches amount after delta server response fix</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Fix: reduce the fetches amount after delta server response fix</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Code and React components refactoring</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Introduce alerting on set price conditions</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Create the technical indicators logic (their math representation based on the fetched data)</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Access to the Bitmex's personal account data</li>
@@ -34,7 +35,7 @@ export const Roadmap = () => {
                     </ul>
                 </li>
                 <li>
-                    <div><FontAwesomeIcon icon={faCircle} size={'xs'}/>03-2019</div>
+                    <div><FontAwesomeIcon icon={faCircle} size={'xs'}/>04-2019</div>
                     <ul>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Saving trigger settings in localStorage</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Manual bid/ask order set up on the Bitmex echange through the API</li>
@@ -42,7 +43,7 @@ export const Roadmap = () => {
                     </ul>
                 </li>
                 <li>
-                    <div><FontAwesomeIcon icon={faCircle} size={'xs'}/>04-2019</div>
+                    <div><FontAwesomeIcon icon={faCircle} size={'xs'}/>05-2019</div>
                     <ul>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Introduce Binance API</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Transaction statistics</li>
@@ -50,7 +51,7 @@ export const Roadmap = () => {
                     </ul>
                 </li>
                 <li>
-                    <div><FontAwesomeIcon icon={faCircle} size={'xs'}/>05-2019 and later</div>
+                    <div><FontAwesomeIcon icon={faCircle} size={'xs'}/>06-2019 and later</div>
                     <ul>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Logging and setting up personal API keys in the app</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>More exchanges</li>
