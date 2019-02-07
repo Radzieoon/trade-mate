@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ALL_INSTRUMENTS, URL} from "../../../const";
+import {URL} from "../../../const";
 import Instrument from './Instrument/Instrument';
 import TradingViewWidget, {Themes} from 'react-tradingview-widget';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -91,7 +91,9 @@ export default class LivePrices extends Component {
         if(filter === '') {
             return (
                 sortedInstruments.map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} openModal={this.getSymbolForModal}/>
+                    const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
+                    // console.log('Instrument data: ',instrumentData);
+                    return <Instrument key={symbol} symbol={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
                 })
             )
         } else {
@@ -99,7 +101,9 @@ export default class LivePrices extends Component {
                 sortedInstruments.filter(symbol => {
                     return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
                 }).map(symbol => {
-                    return <Instrument key={symbol} symbol={symbol} openModal={this.getSymbolForModal}/>
+                    const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
+                    // console.log('Instrument data: ',instrumentData);
+                    return <Instrument key={symbol} symbol={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
                 })
             )
         }
