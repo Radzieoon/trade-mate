@@ -4,7 +4,7 @@ import Instrument from './Instrument/Instrument';
 import TVWidget from './TVWidget/TVWidget';
 import {OrderBook} from './OrderBook/OrderBook';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowUp,faArrowDown} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUp,faArrowDown,faArrowsAltH} from "@fortawesome/free-solid-svg-icons";
 
 export default class LivePrices extends Component {
     constructor(props) {
@@ -15,7 +15,11 @@ export default class LivePrices extends Component {
             filter: '',
             orderBookSymbol: '',
             sortedInstrumentsSymbols: [],
-            sortAscending: true
+            sortAscending: {
+                active: null,
+                names: true,
+                volumes: true
+            }
         };
     }
 
@@ -51,27 +55,48 @@ export default class LivePrices extends Component {
             // console.log('state-sortedInstrumentsSymbols: ',this.state.sortedInstrumentsSymbols);
         });
     };
-    sortInstrumentsNames = () => {
+    sortInstruments = (sortParameter) => {
         let {sortedInstrumentsSymbols,sortAscending} = this.state;
-        sortedInstrumentsSymbols.sort((a,b) => {
-           if(sortAscending) {
-               if(a < b) {
-                   return -1
-               } else if(a > b) {
-                   return 1
-               } else return 0
-           } else {
-               if(b < a) {
-                   return -1
-               } else if(b > a) {
-                   return 1
-               } else return 0
-           }
-        });
-        this.setState({
-            sortAscending: !sortAscending,
-            sortedInstrumentsSymbols
-        })
+        if(sortParameter === 'names') {
+            sortedInstrumentsSymbols.sort((a,b) => {
+               if(sortAscending.names) {
+                   if(a < b) {
+                       return -1
+                   } else if(a > b) {
+                       return 1
+                   } else return 0
+               } else {
+                   if(b < a) {
+                       return -1
+                   } else if(b > a) {
+                       return 1
+                   } else return 0
+               }
+            });
+            this.setState({
+                sortAscending: {
+                    ...sortAscending,
+                    names: !sortAscending.names
+                },
+                sortedInstrumentsSymbols
+            });
+        } else if(sortParameter === 'volumes') {
+            this.setState({
+                sortAscending: {
+                    ...sortAscending,
+                    volumes: !sortAscending.volumes
+                },
+                sortedInstrumentsSymbols
+            })
+        }
+    };
+    showSortArrows = (sortParameter) => {
+        const {sortAscending} = this.state;
+        if(sortParameter === 'names') {
+            return sortAscending.names ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
+        } else if(sortParameter === 'volumes') {
+            return sortAscending.volumes ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
+        }
     };
     filteredInstruments = () => {
         const {filter,sortedInstrumentsSymbols,data} = this.state;
@@ -93,7 +118,7 @@ export default class LivePrices extends Component {
             )
         }
     };
-    handleChange = (event) => {
+    handleInputChange = (event) => {
         this.setState({
             filter: event.target.value
         })
@@ -121,19 +146,19 @@ export default class LivePrices extends Component {
         }
     };
     render() {
-        const {filter,chartSymbol,orderBookSymbol,sortAscending,sortedInstrumentsSymbols} = this.state;
+        const {filter,chartSymbol,orderBookSymbol,sortedInstrumentsSymbols} = this.state;
         return (
             <section className='section-live-prices'>
                 <h1>Check the live prices of the chosen instrument</h1>
-                <input type="text" value={filter} onChange={this.handleChange} placeholder='Filter by Name'/>
+                <input type="text" value={filter} onChange={this.handleInputChange} placeholder='Filter by Name'/>
                 <table>
                     <thead>
                         <tr>
-                            <td onClick={this.sortInstrumentsNames}>Name {sortAscending ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>}</td>
+                            <td onClick={() => this.sortInstruments('names')}>Name {this.showSortArrows('names')}</td>
                             <td>Last Price</td>
                             <td>Ask Price</td>
                             <td>Bid Price</td>
-                            <td>Volume 24h</td>
+                            <td onClick={() => this.sortInstruments('volumes')}>Volume 24h {this.showSortArrows('volumes')}</td>
                             <td>Order Book</td>
                             <td>General Chart</td>
                             <td>Data Timestamp</td>
