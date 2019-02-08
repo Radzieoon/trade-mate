@@ -16,7 +16,7 @@ export default class LivePrices extends Component {
             orderBookSymbol: '',
             sortedInstrumentsSymbols: [],
             sortAscending: {
-                active: null,
+                active: '',
                 names: true,
                 volumes: true
             }
@@ -76,7 +76,8 @@ export default class LivePrices extends Component {
             this.setState({
                 sortAscending: {
                     ...sortAscending,
-                    names: !sortAscending.names
+                    names: !sortAscending.names,
+                    active: 'names'
                 },
                 sortedInstrumentsSymbols
             });
@@ -84,7 +85,8 @@ export default class LivePrices extends Component {
             this.setState({
                 sortAscending: {
                     ...sortAscending,
-                    volumes: !sortAscending.volumes
+                    volumes: !sortAscending.volumes,
+                    active: 'volumes'
                 },
                 sortedInstrumentsSymbols
             })
@@ -93,9 +95,17 @@ export default class LivePrices extends Component {
     showSortArrows = (sortParameter) => {
         const {sortAscending} = this.state;
         if(sortParameter === 'names') {
-            return sortAscending.names ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
+            if(sortAscending.active !== 'names') {
+                return <FontAwesomeIcon icon={faArrowsAltH}/>
+            } else {
+                return sortAscending.names ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
+            }
         } else if(sortParameter === 'volumes') {
-            return sortAscending.volumes ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
+            if(sortAscending.active !== 'volumes') {
+                return <FontAwesomeIcon icon={faArrowsAltH}/>
+            } else {
+                return sortAscending.volumes ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
+            }
         }
     };
     filteredInstruments = () => {
