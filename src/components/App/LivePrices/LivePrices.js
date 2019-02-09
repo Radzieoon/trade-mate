@@ -18,7 +18,7 @@ export default class LivePrices extends Component {
             sortAscending: {
                 active: '',
                 names: true,
-                volumes: true
+                volumes: false
             }
         };
     }
@@ -108,24 +108,16 @@ export default class LivePrices extends Component {
         }
     };
     filteredInstruments = () => {
-        const {filter,sortedInstrumentsSymbols,data} = this.state;
-        if(filter === '') {
-            return (
-                sortedInstrumentsSymbols.map(symbol => {
-                    const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
-                    return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
-                })
-            )
-        } else {
-            return (
-                sortedInstrumentsSymbols.filter(symbol => {
-                    return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
-                }).map(symbol => {
-                    const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
-                    return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
-                })
-            )
-        }
+        const {data,filter,sortedInstrumentsSymbols} = this.state;
+        const filteredInstrumentsSymbols = filter === '' ? sortedInstrumentsSymbols : sortedInstrumentsSymbols.filter(symbol => {
+            return symbol.includes(filter.toUpperCase().replace(/\s+/g, ''))
+        });
+        return (
+            filteredInstrumentsSymbols.map(symbol => {
+                const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
+                return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
+            })
+        )
     };
     handleInputChange = (event) => {
         this.setState({
