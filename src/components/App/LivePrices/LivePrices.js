@@ -55,24 +55,21 @@ export default class LivePrices extends Component {
             // console.log('state-sortedInstrumentsSymbols: ',this.state.sortedInstrumentsSymbols);
         });
     };
+    compareValues = (givenArrayShouldAscending,a,b) => {
+        if(givenArrayShouldAscending) {
+            if(a < b) return -1;
+            else if(a > b) return 1;
+            return 0
+        } else {
+            if(b < a) return -1;
+            else if(b > a) return 1;
+            return 0
+        }
+    };
     sortInstruments = (sortParameter) => {
-        let {sortedInstrumentsSymbols,sortAscending} = this.state;
+        let {sortedInstrumentsSymbols,sortAscending,data} = this.state;
         if(sortParameter === 'names') {
-            sortedInstrumentsSymbols.sort((a,b) => {
-               if(sortAscending.names) {
-                   if(a < b) {
-                       return -1
-                   } else if(a > b) {
-                       return 1
-                   } else return 0
-               } else {
-                   if(b < a) {
-                       return -1
-                   } else if(b > a) {
-                       return 1
-                   } else return 0
-               }
-            });
+            sortedInstrumentsSymbols.sort((a,b) => this.compareValues(sortAscending.names,a,b));
             this.setState({
                 sortAscending: {
                     ...sortAscending,
@@ -82,6 +79,9 @@ export default class LivePrices extends Component {
                 sortedInstrumentsSymbols
             });
         } else if(sortParameter === 'volumes') {
+            const dataSortedByVolume = data.sort((a,b) => this.compareValues(sortAscending.volumes,a.volume24h,b.volume24h));
+            const sortedInstrumentsSymbols = dataSortedByVolume.map(el => el.symbol);
+            // console.log(dataSortedByVolume.map(el => el.volume24h));
             this.setState({
                 sortAscending: {
                     ...sortAscending,
