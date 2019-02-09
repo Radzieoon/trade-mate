@@ -115,7 +115,7 @@ export default class LivePrices extends Component {
         return (
             filteredInstrumentsSymbols.map(symbol => {
                 const instrumentData = data.find(instrument => instrument.symbol.includes(symbol));
-                return <Instrument key={symbol} data={instrumentData} openModal={this.getSymbolForModal}/>
+                return <Instrument key={symbol} data={instrumentData} openModal={this.operateOnModal}/>
             })
         )
     };
@@ -124,27 +124,10 @@ export default class LivePrices extends Component {
             filter: event.target.value
         })
     };
-    getSymbolForModal = (symbol,type) => {
-        if(type === 'chart') {
-            this.setState({
-                chartSymbol: symbol
-            })
-        } else if(type === 'orderBook') {
-            this.setState({
-                orderBookSymbol: symbol
-            })
-        }
-    };
-    closeModal = (type) => {
-        if(type === 'chart') {
-            this.setState({
-                chartSymbol: ''
-            })
-        } else if(type === 'orderBook') {
-            this.setState({
-                orderBookSymbol: ''
-            })
-        }
+    operateOnModal = (type,symbol) => {
+        this.setState({
+            [type]: symbol
+        })
     };
     render() {
         const {filter,chartSymbol,orderBookSymbol,sortedInstrumentsSymbols} = this.state;
@@ -169,8 +152,8 @@ export default class LivePrices extends Component {
                     {sortedInstrumentsSymbols.length ? this.filteredInstruments() : <tr><td colSpan='8' className='loading-live-prices'>Loading...</td></tr>}
                     </tbody>
                 </table>
-                {chartSymbol.length > 0 && <TVWidget chartSymbol={chartSymbol} closeModal={this.closeModal}/>}
-                {orderBookSymbol.length > 0 && <OrderBook orderBookSymbol={orderBookSymbol} closeModal={this.closeModal}/>}
+                {chartSymbol.length > 0 && <TVWidget chartSymbol={chartSymbol} closeModal={this.operateOnModal}/>}
+                {orderBookSymbol.length > 0 && <OrderBook orderBookSymbol={orderBookSymbol} closeModal={this.operateOnModal}/>}
             </section>
         );
     }
