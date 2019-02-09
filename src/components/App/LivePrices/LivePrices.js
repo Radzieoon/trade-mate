@@ -93,19 +93,8 @@ export default class LivePrices extends Component {
     };
     showSortArrows = (sortParameter) => {
         const {sortAscending} = this.state;
-        if(sortParameter === 'names') {
-            if(sortAscending.active !== 'names') {
-                return <FontAwesomeIcon icon={faArrowsAltH}/>
-            } else {
-                return sortAscending.names ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
-            }
-        } else if(sortParameter === 'volumes') {
-            if(sortAscending.active !== 'volumes') {
-                return <FontAwesomeIcon icon={faArrowsAltH}/>
-            } else {
-                return sortAscending.volumes ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
-            }
-        }
+        if(sortAscending.active !== sortParameter) return <FontAwesomeIcon icon={faArrowsAltH}/>;
+        return sortAscending[sortParameter] ? <FontAwesomeIcon icon={faArrowUp}/> : <FontAwesomeIcon icon={faArrowDown}/>
     };
     filteredInstruments = () => {
         const {data,filter,sortedInstrumentsSymbols} = this.state;
