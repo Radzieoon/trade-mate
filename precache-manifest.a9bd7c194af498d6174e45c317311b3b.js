@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "1ab7756492a60520ed87",
-    "url": "/trade-mate/static/css/main.82eca37a.chunk.css"
+    "revision": "df914a07f6d14925900f",
+    "url": "/trade-mate/static/css/main.d19045ec.chunk.css"
   },
   {
-    "revision": "1ab7756492a60520ed87",
-    "url": "/trade-mate/static/js/main.1ab77564.chunk.js"
+    "revision": "df914a07f6d14925900f",
+    "url": "/trade-mate/static/js/main.df914a07.chunk.js"
   },
   {
-    "revision": "695c46ff627a02820b96",
-    "url": "/trade-mate/static/js/1.695c46ff.chunk.js"
+    "revision": "944b46fef0f21d3011fd",
+    "url": "/trade-mate/static/js/1.944b46fe.chunk.js"
   },
   {
     "revision": "1d9d6bcb902eda53e83f",
@@ -52,12 +52,12 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/economica-regular-webfont.651e1c5e.woff2"
   },
   {
-    "revision": "e720b7e759f30413e640a6aefefd6504",
-    "url": "/trade-mate/static/media/economica-bolditalic-webfont.e720b7e7.woff"
-  },
-  {
     "revision": "4b7144dc4645da25d1d261ca63ffe0f4",
     "url": "/trade-mate/static/media/economica-bold-webfont.4b7144dc.woff"
+  },
+  {
+    "revision": "e720b7e759f30413e640a6aefefd6504",
+    "url": "/trade-mate/static/media/economica-bolditalic-webfont.e720b7e7.woff"
   },
   {
     "revision": "77439457daa0dc0c675ea684c51fadb8",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/chart-bg6.ac357a57.jpg"
   },
   {
-    "revision": "6c3d78b141523db3853629f33744e2ee",
+    "revision": "40878a0a81691a7a68aea21343b9a1ef",
     "url": "/trade-mate/index.html"
   }
 ];
