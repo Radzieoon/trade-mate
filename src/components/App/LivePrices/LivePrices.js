@@ -81,7 +81,6 @@ export default class LivePrices extends Component {
         } else if(sortParameter === 'volumes') {
             const dataSortedByVolume = data.sort((a,b) => this.compareValues(sortAscending.volumes,a.volume24h,b.volume24h));
             const sortedInstrumentsSymbols = dataSortedByVolume.map(el => el.symbol);
-            // console.log(dataSortedByVolume.map(el => el.volume24h));
             this.setState({
                 sortAscending: {
                     ...sortAscending,

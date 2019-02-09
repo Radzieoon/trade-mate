@@ -14,13 +14,13 @@ export const Roadmap = () => {
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Router app structure</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Fetching live prices from delta server</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Filtering and sorting instruments by name</li>
-                        <li><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>Sorting instruments by volume</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Sorting instruments by volume</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Dialog window with the general chart of the coresponding instrument</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Dialog window with an orderbook created on the fetched data basis</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Basic app styling</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Full RWD</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Fix: delta server response structure for all symbols query at once</li>
-                        <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Fix: background switch</li>
+                        <li><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>Fix: background switch</li>
                     </ul>
                 </li>
                 <li>
