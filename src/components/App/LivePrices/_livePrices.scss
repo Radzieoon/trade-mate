@@ -21,14 +21,12 @@ section.section-live-prices {
     }
     thead {
       font-weight: bold;
-      td:first-child {
+      td:first-child, td:nth-child(5) {
 	    cursor:pointer;
+        user-select: none;
         svg {
           color: $app-main-text-action-color;
         }
-      }
-      td:nth-child(5) {
-        cursor: pointer;
       }
     }
     td {
