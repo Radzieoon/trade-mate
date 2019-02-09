@@ -1,9 +1,9 @@
 {
-  "main.css": "/trade-mate/static/css/main.d19045ec.chunk.css",
-  "main.js": "/trade-mate/static/js/main.df914a07.chunk.js",
-  "main.js.map": "/trade-mate/static/js/main.df914a07.chunk.js.map",
-  "static/js/1.944b46fe.chunk.js": "/trade-mate/static/js/1.944b46fe.chunk.js",
-  "static/js/1.944b46fe.chunk.js.map": "/trade-mate/static/js/1.944b46fe.chunk.js.map",
+  "main.css": "/trade-mate/static/css/main.575b4404.chunk.css",
+  "main.js": "/trade-mate/static/js/main.4c2df293.chunk.js",
+  "main.js.map": "/trade-mate/static/js/main.4c2df293.chunk.js.map",
+  "static/js/1.c86a4661.chunk.js": "/trade-mate/static/js/1.c86a4661.chunk.js",
+  "static/js/1.c86a4661.chunk.js.map": "/trade-mate/static/js/1.c86a4661.chunk.js.map",
   "runtime~main.js": "/trade-mate/static/js/runtime~main.1d9d6bcb.js",
   "runtime~main.js.map": "/trade-mate/static/js/runtime~main.1d9d6bcb.js.map",
   "static/media/trade-mate.jpg": "/trade-mate/static/media/trade-mate.9563e9a2.jpg",
@@ -15,8 +15,8 @@
   "static/media/chart-bg4.jpg": "/trade-mate/static/media/chart-bg4.191b66bd.jpg",
   "static/media/chart-bg5.jpg": "/trade-mate/static/media/chart-bg5.dfb34e71.jpg",
   "static/media/chart-bg6.jpg": "/trade-mate/static/media/chart-bg6.ac357a57.jpg",
-  "static/css/main.d19045ec.chunk.css.map": "/trade-mate/static/css/main.d19045ec.chunk.css.map",
+  "static/css/main.575b4404.chunk.css.map": "/trade-mate/static/css/main.575b4404.chunk.css.map",
   "index.html": "/trade-mate/index.html",
-  "precache-manifest.a9bd7c194af498d6174e45c317311b3b.js": "/trade-mate/precache-manifest.a9bd7c194af498d6174e45c317311b3b.js",
+  "precache-manifest.5415d490088d9e5cc6a205942fd908c7.js": "/trade-mate/precache-manifest.5415d490088d9e5cc6a205942fd908c7.js",
   "service-worker.js": "/trade-mate/service-worker.js"
 }

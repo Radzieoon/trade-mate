@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "df914a07f6d14925900f",
-    "url": "/trade-mate/static/css/main.d19045ec.chunk.css"
+    "revision": "4c2df29335498cd381f8",
+    "url": "/trade-mate/static/css/main.575b4404.chunk.css"
   },
   {
-    "revision": "df914a07f6d14925900f",
-    "url": "/trade-mate/static/js/main.df914a07.chunk.js"
+    "revision": "4c2df29335498cd381f8",
+    "url": "/trade-mate/static/js/main.4c2df293.chunk.js"
   },
   {
-    "revision": "944b46fef0f21d3011fd",
-    "url": "/trade-mate/static/js/1.944b46fe.chunk.js"
+    "revision": "c86a46619fd5ffc94ca4",
+    "url": "/trade-mate/static/js/1.c86a4661.chunk.js"
   },
   {
     "revision": "1d9d6bcb902eda53e83f",
@@ -36,16 +36,16 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/ethnocentric_rg_it-webfont.ce7c5bd0.woff"
   },
   {
+    "revision": "f803bb810c207624d800e1b6ac9c0b91",
+    "url": "/trade-mate/static/media/economica-italic-webfont.f803bb81.woff2"
+  },
+  {
     "revision": "dc70d5bd452d58b1c68ae60c19f2a249",
     "url": "/trade-mate/static/media/economica-bold-webfont.dc70d5bd.woff2"
   },
   {
     "revision": "812ecfa222cf9f9e0d3db0839cf8f831",
     "url": "/trade-mate/static/media/economica-bolditalic-webfont.812ecfa2.woff2"
-  },
-  {
-    "revision": "f803bb810c207624d800e1b6ac9c0b91",
-    "url": "/trade-mate/static/media/economica-italic-webfont.f803bb81.woff2"
   },
   {
     "revision": "651e1c5e477e814a969bf7a8c43ed9c7",
@@ -56,12 +56,12 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/economica-bold-webfont.4b7144dc.woff"
   },
   {
-    "revision": "e720b7e759f30413e640a6aefefd6504",
-    "url": "/trade-mate/static/media/economica-bolditalic-webfont.e720b7e7.woff"
-  },
-  {
     "revision": "77439457daa0dc0c675ea684c51fadb8",
     "url": "/trade-mate/static/media/economica-italic-webfont.77439457.woff"
+  },
+  {
+    "revision": "e720b7e759f30413e640a6aefefd6504",
+    "url": "/trade-mate/static/media/economica-bolditalic-webfont.e720b7e7.woff"
   },
   {
     "revision": "2dfd66c189da339ab4a0bb2b9e1fe955",
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/chart-bg6.ac357a57.jpg"
   },
   {
-    "revision": "40878a0a81691a7a68aea21343b9a1ef",
+    "revision": "01571a8cd0e607bc8c3476aadc450a43",
     "url": "/trade-mate/index.html"
   }
 ];
