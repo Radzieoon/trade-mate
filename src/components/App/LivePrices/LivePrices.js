@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {URL} from "../../../const";
-import Instrument from './Instrument/Instrument';
+import {Instrument} from './Instrument/Instrument';
 import TVWidget from './TVWidget/TVWidget';
 import {OrderBook} from './OrderBook/OrderBook';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -67,29 +67,18 @@ export default class LivePrices extends Component {
         }
     };
     sortInstruments = (sortParameter) => {
-        let {sortedInstrumentsSymbols,sortAscending,data} = this.state;
-        if(sortParameter === 'names') {
-            sortedInstrumentsSymbols.sort((a,b) => this.compareValues(sortAscending.names,a,b));
-            this.setState({
-                sortAscending: {
-                    ...sortAscending,
-                    names: !sortAscending.names,
-                    active: 'names'
-                },
-                sortedInstrumentsSymbols
-            });
-        } else if(sortParameter === 'volumes') {
-            const dataSortedByVolume = data.sort((a,b) => this.compareValues(sortAscending.volumes,a.volume24h,b.volume24h));
-            const sortedInstrumentsSymbols = dataSortedByVolume.map(el => el.symbol);
-            this.setState({
-                sortAscending: {
-                    ...sortAscending,
-                    volumes: !sortAscending.volumes,
-                    active: 'volumes'
-                },
-                sortedInstrumentsSymbols
-            })
-        }
+        const {sortAscending,data} = this.state;
+        let sortedInstrumentsSymbols = [];
+        if(sortParameter === 'names') sortedInstrumentsSymbols = this.state.sortedInstrumentsSymbols.sort((a,b) => this.compareValues(sortAscending.names, a, b));
+        else if(sortParameter === 'volumes') sortedInstrumentsSymbols = data.sort((a, b) => this.compareValues(sortAscending.volumes, a.volume24h, b.volume24h)).map(el => el.symbol);
+        this.setState({
+            sortAscending: {
+                ...sortAscending,
+                [sortParameter]: !sortAscending[sortParameter],
+                active: sortParameter
+            },
+            sortedInstrumentsSymbols
+        })
     };
     showSortArrows = (sortParameter) => {
         const {sortAscending} = this.state;
