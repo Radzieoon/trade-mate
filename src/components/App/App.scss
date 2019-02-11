@@ -14,7 +14,7 @@
 @import "About/about";
 
 body {
-  @extend %app-background-gradient;
+  //@extend %app-background-gradient;
   //@keyframes backgroundFade {
   //  0%   {opacity: 0;}
   //  10%  {opacity: 1;}
@@ -42,5 +42,29 @@ body {
     @media #{$tablet-up} {
       padding: 0 4vw;
     }
+  }
+  &.bg1 {
+    @include background('trade-mate.jpg','/ cover');
+  }
+  &.bg2 {
+    @include background('money-bg.jpg','');
+  }
+  &.bg3 {
+    @include background('chart-bg1.jpg','/ cover');
+  }
+  &.bg4 {
+    @include background('chart-bg2.jpg','/ cover');
+  }
+  &.bg5 {
+    @include background('chart-bg3.jpg','/ cover');
+  }
+  &.bg6 {
+    @include background('chart-bg4.jpg','/ cover');
+  }
+  &.bg7 {
+    @include background('chart-bg5.jpg','/ cover');
+  }
+  &.bg8 {
+    @include background('chart-bg6.jpg','/ cover');
   }
 }

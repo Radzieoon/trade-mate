@@ -11,4 +11,4 @@ export const URL = 'https://trademate.eu-4.evennode.com/';
 // export const ALL_INSTRUMENTS = ['XBTUSD','ETHUSD','BCHH19','XRPH19','ADAH19','LTCH19','TRXH19','EOSH19'];
 // export const IMAGES_PATH = '../../images/';
 // export const IMAGES = ['trade-mate.jpg','chart-bg1.jpg','chart-bg2.jpg','chart-bg3.jpg','chart-bg4.jpg','chart-bg5.jpg','chart-bg6.jpg','money-bg.jpg'];
-export const IMAGES = [require("./images/trade-mate.jpg"),require("./images/money-bg.jpg"),require("./images/chart-bg1.jpg"),require("./images/chart-bg2.jpg"),require("./images/chart-bg3.jpg"),require("./images/chart-bg4.jpg"),require("./images/chart-bg5.jpg"),require("./images/chart-bg6.jpg")];
+// export const IMAGES = [require("./images/trade-mate.jpg"),require("./images/money-bg.jpg"),require("./images/chart-bg1.jpg"),require("./images/chart-bg2.jpg"),require("./images/chart-bg3.jpg"),require("./images/chart-bg4.jpg"),require("./images/chart-bg5.jpg"),require("./images/chart-bg6.jpg")];

@@ -35,3 +35,7 @@
     transform: scale(1);
   }
 }
+@mixin background($image,$cover) {
+  background: rgb(210,209,255);
+  background: linear-gradient(170deg, rgba(210,209,255,0.8029586834733894) 0%, rgba(255,255,255,0.7973564425770308) 70%, rgba(171,29,13,0.3519782913165266) 100%) fixed, url(../../images/#{$image}) center fixed #{$cover};
+}
