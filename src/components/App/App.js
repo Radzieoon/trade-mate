@@ -14,8 +14,15 @@ import {Roadmap} from "./Roadmap/Roadmap";
 
 export default class App extends Component {
     componentDidMount() {
-        // let counter = 1;
-        document.body.classList.add('bg3');
+        let counter = 1;
+        this.intervalId = setInterval(function setBg() {
+            counter === 1 && document.body.classList.remove(`bg8`);
+            document.body.classList.remove(`bg${counter-1}`);
+            document.body.classList.add(`bg${counter}`);
+            counter++;
+            if(counter === 9) counter = 1;
+            return setBg;
+        }(),3000);
     }
 
     // componentDidMount() {
@@ -26,9 +33,9 @@ export default class App extends Component {
     //         if(counter === 8) {counter = 0}
     //     },20000)
     // }
-    // componentWillUnmount() {
-    //     clearInterval(this.intervalId);
-    // }
+    componentWillUnmount() {
+        clearInterval(this.intervalId);
+    }
 
     render() {
         return (
