@@ -39,3 +39,45 @@
   background: rgb(210,209,255);
   background: linear-gradient(170deg, rgba(210,209,255,0.8029586834733894) 0%, rgba(255,255,255,0.7973564425770308) 70%, rgba(171,29,13,0.3519782913165266) 100%) fixed, url(../../images/#{$image}) center fixed #{$cover};
 }
+//@keyframes fader {
+//  0% {@include background('bg1.jpg','/ cover');}
+//  12.5% {@include background('bg2.jpg','');}
+//  25% {@include background('bg3.jpg','/ cover');}
+//  37.5% {@include background('bg4.jpg','/ cover');}
+//  50% {@include background('bg5.jpg','/ cover');}
+//  62.5% {@include background('bg6.jpg','/ cover');}
+//  75% {@include background('bg7.jpg','/ cover');}
+//  87.5% {@include background('bg8.jpg','/ cover');}
+//  100% {@include background('bg1.jpg','/ cover');}
+//}
+$total-images: 8;
+@function gen-keyframes($current) {
+  @return percentage($current / $total-images);
+}
+$range: gen-keyframes(1)/12.5;
+$steps: 20;
+$fade-process-percentage: $range/$steps;
+//@function bg-fade-process($image1,$image2,$range) {
+//  @mixin
+//}
+@keyframes bg-fade {
+  0% {background: cross-fade(100% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  @for $i from 1 through $total-images {
+    @for $k from $steps through 1 {
+      #{gen-keyframes($i)-$fade-process-percentage * $k} {background: cross-fade(#{$i} url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+    }
+  }
+}
+@keyframes fade {
+  0% {background: cross-fade(0% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //10% {background: cross-fade(10% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //20% {background: cross-fade(20% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //30% {background: cross-fade(30% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //40% {background: cross-fade(40% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //50% {background: cross-fade(50% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //60% {background: cross-fade(60% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //70% {background: cross-fade(70% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //80% {background: cross-fade(80% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  //90% {background: cross-fade(90% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+  100% {background: cross-fade(100% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;}
+}

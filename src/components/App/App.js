@@ -13,17 +13,17 @@ import {Roadmap} from "./Roadmap/Roadmap";
 // import {IMAGES} from '../../const.js';
 
 export default class App extends Component {
-    componentDidMount() {
-        let counter = 1;
-        this.intervalId = setInterval(function setBg() {
-            counter === 1 && document.body.classList.remove(`bg8`);
-            document.body.classList.remove(`bg${counter-1}`);
-            document.body.classList.add(`bg${counter}`);
-            counter++;
-            if(counter === 9) counter = 1;
-            return setBg;
-        }(),3000);
-    }
+    // componentDidMount() {
+    //     let counter = 1;
+    //     this.intervalId = setInterval(function setBg() {
+    //         counter === 1 && document.body.classList.remove(`bg8`);
+    //         document.body.classList.remove(`bg${counter-1}`);
+    //         document.body.classList.add(`bg${counter}`);
+    //         counter++;
+    //         if(counter === 9) counter = 1;
+    //         return setBg;
+    //     }(),3000);
+    // }
 
     // componentDidMount() {
     //     let counter = 1;
