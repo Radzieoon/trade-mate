@@ -1,33 +1,39 @@
-div.app-background {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: -2;
-  &.bg1 {
-    @include background('bg1.jpg','/ cover');
+div.app-background-slideshow {
+  div {
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -2;
   }
-  &.bg2 {
-    @include background('bg2.jpg','');
+  $total-images: 8;
+  @for $i from 1 through $total-images {
+    &>div:nth-child(#{$i}) {
+      @if $i == 2 {
+        @include background('bg#{$i}.jpg', '');
+      } @else {
+        @include background('bg#{$i}.jpg', '/ cover');
+      }
+    }
   }
-  &.bg3 {
-    @include background('bg3.jpg','/ cover');
+  &>div:nth-child(1) {
   }
-  &.bg4 {
-    @include background('bg4.jpg','/ cover');
+  &>div:nth-child(2) {
+    opacity: 1;
   }
-  &.bg5 {
-    @include background('bg5.jpg','/ cover');
+  &>div:nth-child(3) {
   }
-  &.bg6 {
-    @include background('bg6.jpg','/ cover');
+  &>div:nth-child(4) {
   }
-  &.bg7 {
-    @include background('bg7.jpg','/ cover');
+  &>div:nth-child(5) {
   }
-  &.bg8 {
-    @include background('bg8.jpg','/ cover');
+  &>div:nth-child(6) {
+  }
+  &>div:nth-child(7) {
+  }
+  &>div:nth-child(8) {
   }
 }
 header {

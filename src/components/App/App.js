@@ -34,9 +34,9 @@ export default class App extends Component {
     //         if(counter === 8) {counter = 0}
     //     },20000)
     // }
-    componentWillUnmount() {
-        clearInterval(this.intervalId);
-    }
+    // componentWillUnmount() {
+    //     clearInterval(this.intervalId);
+    // }
 
     render() {
         return (
