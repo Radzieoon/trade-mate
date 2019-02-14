@@ -24,6 +24,7 @@ export default class Template extends Component {
         const {children} = this.props;
         return (
             <Fragment>
+                <div className='app-background'/>
                 <header>
                     <ProjectNav/>
                 </header>

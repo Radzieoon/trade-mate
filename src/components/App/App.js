@@ -13,6 +13,7 @@ import {Roadmap} from "./Roadmap/Roadmap";
 // import {IMAGES} from '../../const.js';
 
 export default class App extends Component {
+
     // componentDidMount() {
     //     let counter = 1;
     //     this.intervalId = setInterval(function setBg() {

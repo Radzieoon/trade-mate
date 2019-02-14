@@ -16,7 +16,7 @@
 body {
   //background: cross-fade(50% url(../../images/bg1.jpg), url(../../images/bg4.jpg)) center fixed / cover;
   //background: url(../../images/bg1.jpg) center fixed / cover;
-  animation: bg-fade 60s linear infinite;
+  //animation: bg-fade 60s linear infinite;
   &::before {
     background: rgb(210,209,255);
     background: linear-gradient(170deg, rgba(210,209,255,0.8029586834733894) 0%, rgba(255,255,255,0.7973564425770308) 70%, rgba(171,29,13,0.3519782913165266) 100%);
@@ -51,28 +51,4 @@ body {
       padding: 0 4vw;
     }
   }
-  //&.bg1 {
-  //  @include background('bg1.jpg','/ cover');
-  //}
-  //&.bg2 {
-  //  @include background('bg2.jpg','');
-  //}
-  //&.bg3 {
-  //  @include background('bg3.jpg','/ cover');
-  //}
-  //&.bg4 {
-  //  @include background('bg4.jpg','/ cover');
-  //}
-  //&.bg5 {
-  //  @include background('bg5.jpg','/ cover');
-  //}
-  //&.bg6 {
-  //  @include background('bg6.jpg','/ cover');
-  //}
-  //&.bg7 {
-  //  @include background('bg7.jpg','/ cover');
-  //}
-  //&.bg8 {
-  //  @include background('bg8.jpg','/ cover');
-  //}
 }

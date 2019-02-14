@@ -1,3 +1,35 @@
+div.app-background {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: -2;
+  &.bg1 {
+    @include background('bg1.jpg','/ cover');
+  }
+  &.bg2 {
+    @include background('bg2.jpg','');
+  }
+  &.bg3 {
+    @include background('bg3.jpg','/ cover');
+  }
+  &.bg4 {
+    @include background('bg4.jpg','/ cover');
+  }
+  &.bg5 {
+    @include background('bg5.jpg','/ cover');
+  }
+  &.bg6 {
+    @include background('bg6.jpg','/ cover');
+  }
+  &.bg7 {
+    @include background('bg7.jpg','/ cover');
+  }
+  &.bg8 {
+    @include background('bg8.jpg','/ cover');
+  }
+}
 header {
   background-color: $panel-background-color;
   border-radius: 5px;
