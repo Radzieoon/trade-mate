@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "d2ea4debbc7c1a789b34",
-    "url": "/trade-mate/static/css/main.c5fc0247.chunk.css"
+    "revision": "51ed94a04d430ff313d6",
+    "url": "/trade-mate/static/css/main.68a41f54.chunk.css"
   },
   {
-    "revision": "d2ea4debbc7c1a789b34",
-    "url": "/trade-mate/static/js/main.d2ea4deb.chunk.js"
+    "revision": "51ed94a04d430ff313d6",
+    "url": "/trade-mate/static/js/main.51ed94a0.chunk.js"
   },
   {
     "revision": "a99c47dcb917a6347a1e",
@@ -24,10 +24,6 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/ethnocentric_rg_it-webfont.ff774206.woff2"
   },
   {
-    "revision": "9563e9a299072e9213de9a062293a824",
-    "url": "/trade-mate/static/media/bg1.9563e9a2.jpg"
-  },
-  {
     "revision": "c97084cbd8ac12f5ad214c4dadf4e97d",
     "url": "/trade-mate/static/media/ethnocentric_rg-webfont.c97084cb.woff"
   },
@@ -44,24 +40,28 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/economica-bolditalic-webfont.812ecfa2.woff2"
   },
   {
+    "revision": "f803bb810c207624d800e1b6ac9c0b91",
+    "url": "/trade-mate/static/media/economica-italic-webfont.f803bb81.woff2"
+  },
+  {
     "revision": "651e1c5e477e814a969bf7a8c43ed9c7",
     "url": "/trade-mate/static/media/economica-regular-webfont.651e1c5e.woff2"
   },
   {
-    "revision": "f803bb810c207624d800e1b6ac9c0b91",
-    "url": "/trade-mate/static/media/economica-italic-webfont.f803bb81.woff2"
+    "revision": "9563e9a299072e9213de9a062293a824",
+    "url": "/trade-mate/static/media/bg1.9563e9a2.jpg"
   },
   {
     "revision": "4b7144dc4645da25d1d261ca63ffe0f4",
     "url": "/trade-mate/static/media/economica-bold-webfont.4b7144dc.woff"
   },
   {
-    "revision": "e720b7e759f30413e640a6aefefd6504",
-    "url": "/trade-mate/static/media/economica-bolditalic-webfont.e720b7e7.woff"
-  },
-  {
     "revision": "77439457daa0dc0c675ea684c51fadb8",
     "url": "/trade-mate/static/media/economica-italic-webfont.77439457.woff"
+  },
+  {
+    "revision": "e720b7e759f30413e640a6aefefd6504",
+    "url": "/trade-mate/static/media/economica-bolditalic-webfont.e720b7e7.woff"
   },
   {
     "revision": "2dfd66c189da339ab4a0bb2b9e1fe955",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/bg2.6ea56fc8.jpg"
   },
   {
-    "revision": "7bfa684164a73eaefebc3a274fbe5c8c",
+    "revision": "25b9f544697255e5c1d58e6694dd96e8",
     "url": "/trade-mate/index.html"
   }
 ];
