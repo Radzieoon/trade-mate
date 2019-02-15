@@ -10,5 +10,5 @@ export const URL = 'https://trademate.eu-4.evennode.com/';
 // export const eosh19 = '?symbol=EOSH19';
 // export const ALL_INSTRUMENTS = ['XBTUSD','ETHUSD','BCHH19','XRPH19','ADAH19','LTCH19','TRXH19','EOSH19'];
 // export const IMAGES_PATH = '../../images/';
-// export const IMAGES = ['bg1.jpg','bg3.jpg','bg4.jpg','bg5.jpg','bg6.jpg','bg7.jpg','bg8.jpg','bg2.jpg'];
-// export const IMAGES = [require("./images/bg1.jpg"),require("./images/bg2.jpg"),require("./images/bg3.jpg"),require("./images/bg4.jpg"),require("./images/bg5.jpg"),require("./images/bg6.jpg"),require("./images/bg7.jpg"),require("./images/bg8.jpg")];
+// export const IMAGES = ['bg1.jpg','bg2.jpg','bg6.jpg','bg5.jpg','bg3.jpg','bg4.jpg','out1.jpg','out2.jpg'];
+// export const IMAGES = [require("./images/bg1.jpg"),require("./images/out2.jpg"),require("./images/bg2.jpg"),require("./images/bg6.jpg"),require("./images/bg5.jpg"),require("./images/bg3.jpg"),require("./images/bg4.jpg"),require("./images/out1.jpg")];

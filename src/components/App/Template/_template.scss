@@ -1,6 +1,6 @@
 div.app-background-slideshow {
   $time-per-image: 20;
-  $total-images: 8;
+  $total-images: 3;
   $bg-fade-in-range: 20%;
   $fade-in-range-in-keyframes: $bg-fade-in-range * (1 / $total-images);
   $bg-fade-out-delay: 0%;
@@ -9,9 +9,9 @@ div.app-background-slideshow {
   $fade-out-range-in-keyframes: percentage(1 / $total-images) + ($bg-fade-out-range * (1 / $total-images));
   @keyframes bg-fade {
     0% { opacity: 0; animation-timing-function: ease-in; }
-    #{$fade-in-range-in-keyframes} { opacity: 1; animation-timing-function: ease-out; /*transform: scale(1.03);*/ }
-    #{$fade-out-delay-in-keyframes} { opacity: 1; /*transform: scale(1.1);*/ }
-    #{$fade-out-range-in-keyframes} { opacity: 0; /*transform: scale(1.18);*/ }
+    #{$fade-in-range-in-keyframes} { opacity: 1; animation-timing-function: ease-out; transform: scale(1.03); }
+    #{$fade-out-delay-in-keyframes} { opacity: 1; transform: scale(1.1); }
+    #{$fade-out-range-in-keyframes} { opacity: 0; transform: scale(1.18); }
     100% { opacity: 0; }
   }
   div {

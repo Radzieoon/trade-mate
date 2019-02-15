@@ -31,8 +31,6 @@ export default class Template extends Component {
                     <div/>
                     <div/>
                     <div/>
-                    <div/>
-                    <div/>
                 </div>
                 <header>
                     <ProjectNav/>
