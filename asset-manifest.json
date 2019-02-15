@@ -1,7 +1,7 @@
 {
   "main.css": "/trade-mate/static/css/main.8cb00cbc.chunk.css",
-  "main.js": "/trade-mate/static/js/main.ec9f1994.chunk.js",
-  "main.js.map": "/trade-mate/static/js/main.ec9f1994.chunk.js.map",
+  "main.js": "/trade-mate/static/js/main.a58d4ed2.chunk.js",
+  "main.js.map": "/trade-mate/static/js/main.a58d4ed2.chunk.js.map",
   "static/js/1.a99c47dc.chunk.js": "/trade-mate/static/js/1.a99c47dc.chunk.js",
   "static/js/1.a99c47dc.chunk.js.map": "/trade-mate/static/js/1.a99c47dc.chunk.js.map",
   "runtime~main.js": "/trade-mate/static/js/runtime~main.1d9d6bcb.js",
@@ -9,6 +9,6 @@
   "static/media/App.scss": "/trade-mate/static/media/bg2.6ea56fc8.jpg",
   "static/css/main.8cb00cbc.chunk.css.map": "/trade-mate/static/css/main.8cb00cbc.chunk.css.map",
   "index.html": "/trade-mate/index.html",
-  "precache-manifest.1e5efbe4e6883244bf01a0e924a9076a.js": "/trade-mate/precache-manifest.1e5efbe4e6883244bf01a0e924a9076a.js",
+  "precache-manifest.354e208d70b58da8c046f30b0f9a0efb.js": "/trade-mate/precache-manifest.354e208d70b58da8c046f30b0f9a0efb.js",
   "service-worker.js": "/trade-mate/service-worker.js"
 }

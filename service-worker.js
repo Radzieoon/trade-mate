@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/trade-mate/precache-manifest.1e5efbe4e6883244bf01a0e924a9076a.js"
+  "/trade-mate/precache-manifest.354e208d70b58da8c046f30b0f9a0efb.js"
 );
 
 workbox.clientsClaim();
