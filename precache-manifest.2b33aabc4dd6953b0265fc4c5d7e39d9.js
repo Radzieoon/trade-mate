@@ -36,12 +36,12 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/economica-bold-webfont.dc70d5bd.woff2"
   },
   {
-    "revision": "812ecfa222cf9f9e0d3db0839cf8f831",
-    "url": "/trade-mate/static/media/economica-bolditalic-webfont.812ecfa2.woff2"
-  },
-  {
     "revision": "f803bb810c207624d800e1b6ac9c0b91",
     "url": "/trade-mate/static/media/economica-italic-webfont.f803bb81.woff2"
+  },
+  {
+    "revision": "812ecfa222cf9f9e0d3db0839cf8f831",
+    "url": "/trade-mate/static/media/economica-bolditalic-webfont.812ecfa2.woff2"
   },
   {
     "revision": "9563e9a299072e9213de9a062293a824",
