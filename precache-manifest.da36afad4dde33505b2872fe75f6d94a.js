@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a58d4ed221e8f8601777",
-    "url": "/trade-mate/static/css/main.8cb00cbc.chunk.css"
+    "revision": "d2ea4debbc7c1a789b34",
+    "url": "/trade-mate/static/css/main.c5fc0247.chunk.css"
   },
   {
-    "revision": "a58d4ed221e8f8601777",
-    "url": "/trade-mate/static/js/main.a58d4ed2.chunk.js"
+    "revision": "d2ea4debbc7c1a789b34",
+    "url": "/trade-mate/static/js/main.d2ea4deb.chunk.js"
   },
   {
     "revision": "a99c47dcb917a6347a1e",
@@ -24,6 +24,10 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/ethnocentric_rg_it-webfont.ff774206.woff2"
   },
   {
+    "revision": "9563e9a299072e9213de9a062293a824",
+    "url": "/trade-mate/static/media/bg1.9563e9a2.jpg"
+  },
+  {
     "revision": "c97084cbd8ac12f5ad214c4dadf4e97d",
     "url": "/trade-mate/static/media/ethnocentric_rg-webfont.c97084cb.woff"
   },
@@ -40,16 +44,12 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/economica-bolditalic-webfont.812ecfa2.woff2"
   },
   {
-    "revision": "f803bb810c207624d800e1b6ac9c0b91",
-    "url": "/trade-mate/static/media/economica-italic-webfont.f803bb81.woff2"
-  },
-  {
     "revision": "651e1c5e477e814a969bf7a8c43ed9c7",
     "url": "/trade-mate/static/media/economica-regular-webfont.651e1c5e.woff2"
   },
   {
-    "revision": "9563e9a299072e9213de9a062293a824",
-    "url": "/trade-mate/static/media/bg1.9563e9a2.jpg"
+    "revision": "f803bb810c207624d800e1b6ac9c0b91",
+    "url": "/trade-mate/static/media/economica-italic-webfont.f803bb81.woff2"
   },
   {
     "revision": "4b7144dc4645da25d1d261ca63ffe0f4",
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/trade-mate/static/media/bg2.6ea56fc8.jpg"
   },
   {
-    "revision": "423dbaf59dc2c8c2e4f147352937488c",
+    "revision": "7bfa684164a73eaefebc3a274fbe5c8c",
     "url": "/trade-mate/index.html"
   }
 ];
