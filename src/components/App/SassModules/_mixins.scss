@@ -36,5 +36,5 @@
   }
 }
 @mixin background($image,$cover) {
-  background: url(../../images/#{$image}) center fixed #{$cover};
+  background: url(../../images/bg#{$image}.jpg) fixed center #{$cover};
 }

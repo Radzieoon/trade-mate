@@ -26,11 +26,7 @@ div.app-background-slideshow {
   }
   @for $i from 1 through $total-images {
     &>div:nth-child(#{$i}) {
-      @if $i == 2 {
-        @include background('bg#{$i}.jpg', '');
-      } @else {
-        @include background('bg#{$i}.jpg', '/ cover');
-      }
+      @include background($i,'/ cover');
       animation-delay: #{$time-per-image * ($i - 1)}s;
     }
   }
