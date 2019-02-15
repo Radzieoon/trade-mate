@@ -16,11 +16,11 @@ export const Roadmap = () => {
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Filtering and sorting instruments by name</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Sorting instruments by volume</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Dialog window with the general chart of the coresponding instrument</li>
-                        <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Dialog window with an orderbook created on the fetched data basis</li>
+                        <li><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>Dialog window with an orderbook created on the fetched data basis</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Basic app styling</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Full RWD</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Fix: delta server response structure for all symbols query at once</li>
-                        <li><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>Fix: background switch</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Fix: background switch</li>
                     </ul>
                 </li>
                 <li>
@@ -28,7 +28,7 @@ export const Roadmap = () => {
                     <ul>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Fix: reduce the fetches amount after delta server response fix</li>
                         <li><FontAwesomeIcon icon={faCheckCircle} size={'xs'}/>Code and React components refactoring</li>
-                        <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Introduce alerting on set price conditions</li>
+                        <li><FontAwesomeIcon icon={faDotCircle} size={'xs'}/>Introduce alerting on set price conditions</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Create the technical indicators logic (their math representation based on the fetched data)</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Access to the Bitmex's personal account data</li>
                         <li><FontAwesomeIcon icon={faCircle} size={'xs'}/>Introduce new alert triggers based on set conditions of technical indicators, already taken trade position and account balance</li>
