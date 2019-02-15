@@ -1,5 +1,21 @@
 div.app-background-slideshow {
+  $time-per-image: 20;
+  $total-images: 8;
+  $bg-fade-in-range: 20%;
+  $fade-in-range-in-keyframes: $bg-fade-in-range * (1 / $total-images);
+  $bg-fade-out-delay: 0%;
+  $fade-out-delay-in-keyframes: percentage(1 / $total-images) + ($bg-fade-out-delay * (1 / $total-images));
+  $bg-fade-out-range: 50%;
+  $fade-out-range-in-keyframes: percentage(1 / $total-images) + ($bg-fade-out-range * (1 / $total-images));
+  @keyframes bg-fade {
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    #{$fade-in-range-in-keyframes} { opacity: 1; animation-timing-function: ease-out; transform: scale(1.03); }
+    #{$fade-out-delay-in-keyframes} { opacity: 1; transform: scale(1.1); }
+    #{$fade-out-range-in-keyframes} { opacity: 0; transform: scale(1.18); }
+    100% { opacity: 0; }
+  }
   div {
+    animation: bg-fade #{$time-per-image * $total-images}s infinite;
     bottom: 0;
     left: 0;
     opacity: 0;
@@ -8,7 +24,6 @@ div.app-background-slideshow {
     top: 0;
     z-index: -2;
   }
-  $total-images: 8;
   @for $i from 1 through $total-images {
     &>div:nth-child(#{$i}) {
       @if $i == 2 {
@@ -16,24 +31,8 @@ div.app-background-slideshow {
       } @else {
         @include background('bg#{$i}.jpg', '/ cover');
       }
+      animation-delay: #{$time-per-image * ($i - 1)}s;
     }
-  }
-  &>div:nth-child(1) {
-  }
-  &>div:nth-child(2) {
-    opacity: 1;
-  }
-  &>div:nth-child(3) {
-  }
-  &>div:nth-child(4) {
-  }
-  &>div:nth-child(5) {
-  }
-  &>div:nth-child(6) {
-  }
-  &>div:nth-child(7) {
-  }
-  &>div:nth-child(8) {
   }
 }
 header {

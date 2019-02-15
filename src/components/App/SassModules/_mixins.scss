@@ -38,36 +38,3 @@
 @mixin background($image,$cover) {
   background: url(../../images/#{$image}) center fixed #{$cover};
 }
-//@keyframes fader {
-//  0% {@include background('bg1.jpg','/ cover');}
-//  12.5% {@include background('bg2.jpg','');}
-//  25% {@include background('bg3.jpg','/ cover');}
-//  37.5% {@include background('bg4.jpg','/ cover');}
-//  50% {@include background('bg5.jpg','/ cover');}
-//  62.5% {@include background('bg6.jpg','/ cover');}
-//  75% {@include background('bg7.jpg','/ cover');}
-//  87.5% {@include background('bg8.jpg','/ cover');}
-//  100% {@include background('bg1.jpg','/ cover');}
-//}
-$total-images: 8;
-$range: 1 / $total-images / 12.5;
-$steps: 20;
-$fade-process-percentage: $range/$steps;
-@function gen-keyframes($current,$step) {
-  @return percentage(($current / $total-images) - ($fade-process-percentage * $step));
-}
-@mixin bg-fade-process($image1,$image2,$range) {
-
-}
-@keyframes bg-fade {
-  @for $i from 1 through $total-images {
-    $second-image: $i + 1;
-    @if $i == $total-images {
-      $second-image: 1;
-    }
-    #{gen-keyframes($i,0) - percentage(1 / $total-images)} {background: cross-fade(0% url(../../images/bg#{$i}.jpg), url(../../images/bg#{$second-image}.jpg)) center fixed / cover;}
-    @for $j from $steps through 0 {
-      #{gen-keyframes($i,$j)} {background: cross-fade(#{percentage($j * (1 / $steps))} url(../../images/bg#{$i}.jpg), url(../../images/bg#{$second-image}.jpg)) center fixed / cover;}
-    }
-  }
-}

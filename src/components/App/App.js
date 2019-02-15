@@ -10,34 +10,8 @@ import {About} from './About/About';
 import {Contact} from './Contact/Contact';
 import {NotFound} from './NotFound/NotFound';
 import {Roadmap} from "./Roadmap/Roadmap";
-// import {IMAGES} from '../../const.js';
 
 export default class App extends Component {
-
-    // componentDidMount() {
-    //     let counter = 1;
-    //     this.intervalId = setInterval(function setBg() {
-    //         counter === 1 && document.body.classList.remove(`bg8`);
-    //         document.body.classList.remove(`bg${counter-1}`);
-    //         document.body.classList.add(`bg${counter}`);
-    //         counter++;
-    //         if(counter === 9) counter = 1;
-    //         return setBg;
-    //     }(),3000);
-    // }
-
-    // componentDidMount() {
-    //     let counter = 1;
-    //     this.intervalId = setInterval(() => {
-    //         document.body.style.background = `linear-gradient(170deg, rgba(210,209,255,0.8029586834733894) 0%, rgba(255,255,255,0.7973564425770308) 70%, rgba(171,29,13,0.3519782913165266) 100%), url(${IMAGES[counter]}) ${counter !== 1 ? 'center fixed / cover' : ''}`;
-    //         counter++;
-    //         if(counter === 8) {counter = 0}
-    //     },20000)
-    // }
-    // componentWillUnmount() {
-    //     clearInterval(this.intervalId);
-    // }
-
     render() {
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
